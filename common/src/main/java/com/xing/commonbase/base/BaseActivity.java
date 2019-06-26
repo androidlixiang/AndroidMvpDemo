@@ -15,10 +15,14 @@ import com.xing.commonbase.util.StatusBarUtil;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected Context mContext;
     private NetworkChangeReceiver receiver;
+    private Unbinder unbinder;
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);//黑色
         }
-
+        //注册ButterKnife
+        unbinder = ButterKnife.bind(this);
         registerNetworkChangeReceiver();
         initView();
         initData();
@@ -71,6 +76,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         // 取消注册
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
+        }
+        if (unbinder!=null){
+            unbinder.unbind();
         }
     }
 

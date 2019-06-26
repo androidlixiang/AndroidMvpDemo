@@ -3,12 +3,8 @@ package com.xing.commonbase.base;
 import com.xing.commonbase.mvp.IPresenter;
 import com.xing.commonbase.mvp.IView;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity implements IView {
     protected P mPresenter;
-    private Unbinder unbinder;
 
     @Override
     protected void initData() {
@@ -18,8 +14,6 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
-        unbinder = ButterKnife.bind(this);
-
     }
 
     @Override
@@ -48,9 +42,6 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;
-        }
-        if (unbinder != null) {
-            unbinder.unbind();
         }
     }
 }
