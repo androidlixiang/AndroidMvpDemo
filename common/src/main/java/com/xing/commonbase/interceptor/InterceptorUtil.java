@@ -1,4 +1,4 @@
-package com.xing.commonbase.http;
+package com.xing.commonbase.interceptor;
 
 import android.text.TextUtils;
 

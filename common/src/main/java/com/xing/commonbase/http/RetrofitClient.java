@@ -1,5 +1,6 @@
 package com.xing.commonbase.http;
 
+import com.xing.commonbase.interceptor.InterceptorUtil;
 import com.xing.commonbase.json.FastJsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -25,9 +26,9 @@ public class RetrofitClient {
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(15, TimeUnit.SECONDS)
 //                .cookieJar(cookieJar)
-                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
-                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
-                .addInterceptor(InterceptorUtil.logInterceptor())
+//                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
+//                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
+//                .addInterceptor(InterceptorUtil.logInterceptor())
                 .addInterceptor(InterceptorUtil.headerInterceptor())
                 .build();
 
