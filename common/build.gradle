@@ -46,7 +46,7 @@ dependencies {
     api rootProject.ext.dependencies['okhttp']
     api rootProject.ext.dependencies['logging-interceptor']
     api rootProject.ext.dependencies['fastjson']
-//    api rootProject.ext.dependencies['recycler-adapter-helper']
+    api rootProject.ext.dependencies['recycler-adapter-helper']
     api rootProject.ext.dependencies['glide']
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
@@ -61,7 +61,7 @@ dependencies {
     api rootProject.ext.dependencies['greendao']
 //    api rootProject.ext.dependencies['retrofit-cookie']
     api rootProject.ext.dependencies['smart-refreshlayout']
-//    api rootProject.ext.dependencies['photoview']
+    api rootProject.ext.dependencies['photoview']
     api rootProject.ext.dependencies['andpermission']
     api rootProject.ext.dependencies['eventbus']
     api rootProject.ext.dependencies['aspectj']

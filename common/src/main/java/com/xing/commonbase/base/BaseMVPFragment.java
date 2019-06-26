@@ -37,11 +37,21 @@ public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment
 
     protected abstract void initData();
 
+
     @Override
-    public void onDetach() {
-        super.onDetach();
+    public void showLoading() {
+
     }
 
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public boolean isDestroyData() {
+        return !isAdded();
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

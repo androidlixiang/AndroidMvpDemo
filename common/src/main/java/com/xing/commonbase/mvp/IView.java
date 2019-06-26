@@ -11,4 +11,10 @@ public interface IView {
      * 隐藏 loading
      */
     void hideLoading();
+
+    /**
+     * 当前页面是否丢弃请求数据
+     */
+    boolean isDestroyData();
+
 }

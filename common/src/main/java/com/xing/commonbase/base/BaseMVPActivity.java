@@ -32,6 +32,11 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
 
     }
 
+    @Override
+    public boolean isDestroyData() {
+        return isFinishing();
+    }
+
     protected abstract int getLayoutResId();
 
     protected abstract P createPresenter();
