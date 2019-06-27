@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
+import com.xing.commonbase.mvp.IView;
 import com.xing.commonbase.receiver.NetworkChangeReceiver;
 import com.xing.commonbase.util.StatusBarUtil;
 
@@ -18,7 +19,7 @@ import org.greenrobot.eventbus.Subscribe;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     protected Context mContext;
     private NetworkChangeReceiver receiver;
@@ -54,6 +55,23 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initData() {
 
+    }
+
+
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public boolean isDestroyData() {
+        return isFinishing();
     }
 
     /**

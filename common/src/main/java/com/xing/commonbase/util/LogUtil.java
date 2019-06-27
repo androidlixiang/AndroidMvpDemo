@@ -40,7 +40,7 @@ public class LogUtil {
 
     public static void logi(String Tag, String str) {
         if (!isRealease) {
-            Log.i(Tag, "logi: " + str);
+            Log.d(Tag, "logi: " + str);
         }
 
     }

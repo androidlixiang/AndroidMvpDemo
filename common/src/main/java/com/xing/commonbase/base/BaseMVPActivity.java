@@ -1,9 +1,8 @@
 package com.xing.commonbase.base;
 
 import com.xing.commonbase.mvp.IPresenter;
-import com.xing.commonbase.mvp.IView;
 
-public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity implements IView {
+public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity {
     protected P mPresenter;
 
     @Override
@@ -16,20 +15,6 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
         }
     }
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public boolean isDestroyData() {
-        return isFinishing();
-    }
 
     protected abstract int getLayoutResId();
 

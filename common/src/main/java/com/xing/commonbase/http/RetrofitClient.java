@@ -38,7 +38,6 @@ public class RetrofitClient {
         retrofit = new Retrofit.Builder()
                 .baseUrl(API_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                .addConverterFactory(FastJsonConverterFactory.create())   // 使用 fastjson 解析器解析 json
                 .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
                 .client(okHttpClient)
                 .build();
