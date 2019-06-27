@@ -1,17 +1,19 @@
 package com.xing.commonbase.http;
 
+
 import com.xing.commonbase.interceptor.InterceptorUtil;
-import com.xing.commonbase.json.FastJsonConverterFactory;
+import com.xing.commonbase.interceptor.LogInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String API_HOST = "https://www.wanandroid.com/";
+    private static final String API_HOST = "http://api.xzhuangshop.com/";
     private static RetrofitClient instance;
     private static OkHttpClient okHttpClient;
     private static Retrofit retrofit;
@@ -30,12 +32,14 @@ public class RetrofitClient {
 //                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
 //                .addInterceptor(InterceptorUtil.logInterceptor())
                 .addInterceptor(InterceptorUtil.headerInterceptor())
+                .addInterceptor(new LogInterceptor())
                 .build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(API_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(FastJsonConverterFactory.create())   // 使用 fastjson 解析器解析 json
+//                .addConverterFactory(FastJsonConverterFactory.create())   // 使用 fastjson 解析器解析 json
+                .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
                 .client(okHttpClient)
                 .build();
 

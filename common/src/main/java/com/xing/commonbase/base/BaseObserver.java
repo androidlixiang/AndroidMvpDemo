@@ -1,5 +1,7 @@
 package com.xing.commonbase.base;
 
+import android.util.Log;
+
 import com.xing.commonbase.http.ApiException;
 import com.xing.commonbase.http.ExceptionHandler;
 import com.xing.commonbase.mvp.IView;
@@ -9,9 +11,6 @@ import io.reactivex.observers.DisposableObserver;
 public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>> {
     private IView baseView;
 
-    public BaseObserver() {
-
-    }
 
     public BaseObserver(IView baseView) {
         this.baseView = baseView;
@@ -33,16 +32,10 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
             }
             baseView.hideLoading();
         }
-        int errcode = baseResponse.getErrorCode();
-        String errmsg = baseResponse.getErrorMsg();
-        // 兼容 gank api
-        boolean isOk = !baseResponse.isError();
-        if (errcode == 0 || errcode == 200) {   // wanandroid api
+        int errcode = baseResponse.getCode();
+        String errmsg = baseResponse.getMessage();
+        if (errcode == 10000) {
             T data = baseResponse.getData();
-            // 将服务端获取到的正常数据传递给上层调用方
-            onSuccess(data);
-        } else if (isOk) {   // gank api
-            T data = baseResponse.getResults();
             onSuccess(data);
         } else {
             onError(new ApiException(errcode, errmsg));
@@ -64,6 +57,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
     @Override
     public void onError(Throwable e) {
         ExceptionHandler.handleException(e);
+        Log.w("BaseObserver", e);
     }
 
     @Override

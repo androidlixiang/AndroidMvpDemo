@@ -1,35 +1,31 @@
 package com.xing.commonbase.base;
 
+import java.io.Serializable;
+
 /**
  * 网络请求返回的数据，按格式统一包装成 BaseResponse 类
  * Created by Administrator on 2018/9/15.
  */
 
-public class BaseResponse<T> {
-
-    private int errorCode = -1;
-    private String errorMsg;
+public class BaseResponse<T> implements Serializable {
+    private int code;//后台给的状态码
+    private String message;
     private T data;
-    /**
-     * 兼容 gank api
-     */
-    private T results;
-    private boolean error = true;
 
-    public int getErrorCode() {
-        return errorCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {
@@ -38,30 +34,5 @@ public class BaseResponse<T> {
 
     public void setData(T data) {
         this.data = data;
-    }
-
-    public boolean isError() {
-        return error;
-    }
-
-    public T getResults() {
-        return results;
-    }
-
-    public void setResults(T results) {
-        this.results = results;
-    }
-
-    public void setError(boolean error) {
-        this.error = error;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseResponse{" +
-                "errorCode=" + errorCode +
-                ", errorMsg='" + errorMsg + '\'' +
-                ", data=" + data +
-                '}';
     }
 }
