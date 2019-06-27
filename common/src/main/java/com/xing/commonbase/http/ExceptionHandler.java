@@ -79,6 +79,11 @@ public class ExceptionHandler {
             case -1001:
 //                gotoLoginActivity();
                 break;
+            case 20000:
+                ARouter.getInstance()
+                        .build("/activity/second")
+                        .navigation();
+                break;
             default:
                 break;
         }

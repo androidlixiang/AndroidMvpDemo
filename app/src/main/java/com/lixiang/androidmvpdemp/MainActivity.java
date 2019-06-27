@@ -1,11 +1,11 @@
 package com.lixiang.androidmvpdemp;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.lixiang.androidmvpdemp.login.LogPresent;
 import com.lixiang.androidmvpdemp.login.LoginCon;
 import com.lixiang.androidmvpdemp.login.UserBean;
@@ -63,8 +63,10 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
             case R.id.button1:
 //                mPresenter.login(new LogBean(name, paw));
 //                ARouter.getInstance().build("/activity/second").navigation();
-
-                startActivity(new Intent(mContext,SecondActivity.class));
+                ARouter.getInstance()
+                        .build("/activity/second")
+                        .navigation();
+//                startActivity(new Intent(mContext,SecondActivity.class));
                 break;
             case R.id.button2:
                 mPresenter.login1(name, paw);

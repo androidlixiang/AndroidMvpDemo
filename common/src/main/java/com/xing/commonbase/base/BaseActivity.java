@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.xing.commonbase.receiver.NetworkChangeReceiver;
+import com.xing.commonbase.util.LogUtil;
 import com.xing.commonbase.util.StatusBarUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,6 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
+        ARouter.getInstance().inject(this);
         mContext = this;
         setStatusBarColor();
         // 基类中注册 eventbus
@@ -57,15 +60,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
     }
 
 
-
     @Override
     public void showLoading() {
+        LogUtil.logTest("showLoading");
 
     }
 
     @Override
     public void hideLoading() {
-
+        LogUtil.logTest("hideLoading");
     }
 
     @Override
@@ -94,7 +97,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
-        if (unbinder!=null){
+        if (unbinder != null) {
             unbinder.unbind();
         }
     }
@@ -113,6 +116,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         }
         decor.setSystemUiVisibility(ui);
     }
+
     //EventBus默认的实现
     @Subscribe
     public void onEventMainThread(String str) {

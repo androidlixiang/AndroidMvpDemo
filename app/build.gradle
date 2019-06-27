@@ -9,6 +9,12 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,5 +32,6 @@ dependencies {
     // butterknife
     implementation rootProject.ext.dependencies['butterknife']
     annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+    annotationProcessor rootProject.ext.dependencies['arouter-compiler']
     implementation project(path: ':common')
 }

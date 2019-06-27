@@ -12,6 +12,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.xing.commonbase.BuildConfig;
 import com.xing.commonbase.R;
 
 public class BaseApplication extends Application {
@@ -51,18 +52,20 @@ public class BaseApplication extends Application {
      * @param baseApplication
      */
     private void initRouter(BaseApplication baseApplication) {
-        if (isDebug()) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(baseApplication); // 尽可能早，推荐在Application中初始化
     }
 
-    public static BaseApplication getApplication() {
-        return application;
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        ARouter.getInstance().destroy();
     }
 
-    private boolean isDebug() {
-        return true;
+    public static BaseApplication getApplication() {
+        return application;
     }
 }
