@@ -1,11 +1,11 @@
 package com.lixiang.androidmvpdemp;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.lixiang.androidmvpdemp.login.LogBean;
 import com.lixiang.androidmvpdemp.login.LogPresent;
 import com.lixiang.androidmvpdemp.login.LoginCon;
 import com.lixiang.androidmvpdemp.login.UserBean;
@@ -40,9 +40,6 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
     @Override
     protected void initView() {
-//        tvAa=findViewById(R.id.tv_aa);
-        TestDialog testDialog=new TestDialog();
-        testDialog.show(getSupportFragmentManager(), "");
     }
 
 
@@ -50,7 +47,7 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
     public void loginSuccess(UserBean userBean) {
         tvContent.setText(userBean.toString());
 
-        TestDialog testDialog=new TestDialog();
+        TestDialog testDialog = new TestDialog();
         testDialog.show(getSupportFragmentManager(), "");
     }
 
@@ -59,11 +56,15 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
     public void onViewClicked(View view) {
         tvContent.setText("请请求网络");
 
+
         String name = etName.getText().toString();
         String paw = etPasww.getText().toString();
         switch (view.getId()) {
             case R.id.button1:
-                mPresenter.login(new LogBean(name, paw));
+//                mPresenter.login(new LogBean(name, paw));
+//                ARouter.getInstance().build("/activity/second").navigation();
+
+                startActivity(new Intent(mContext,SecondActivity.class));
                 break;
             case R.id.button2:
                 mPresenter.login1(name, paw);

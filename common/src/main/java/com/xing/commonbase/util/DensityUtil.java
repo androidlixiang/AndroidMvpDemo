@@ -3,6 +3,8 @@ package com.xing.commonbase.util;
 import android.content.Context;
 import android.util.TypedValue;
 
+import com.xing.commonbase.base.BaseApplication;
+
 /**
  * dp,px 相互转化工具类
  */
@@ -15,9 +17,9 @@ public class DensityUtil {
     /**
      * dp转px
      */
-    public static int dp2px(Context context, float dpVal) {
+    public static int dp2px(float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, context.getResources().getDisplayMetrics());
+                dpVal, BaseApplication.application.getResources().getDisplayMetrics());
     }
 
     /**

@@ -42,7 +42,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
     /**
      * 更改dialog大小,样式，已经点击是否消失等
      *
-     * @param windowParams
+     * @param window
      * @return
      */
     protected WindowManager.LayoutParams changeStyle(Window window) {

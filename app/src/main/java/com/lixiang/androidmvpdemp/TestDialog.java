@@ -4,13 +4,24 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.xing.commonbase.base.BaseDialogFragment;
 
+import butterknife.BindView;
+
 public class TestDialog extends BaseDialogFragment {
+    @BindView(R.id.tv_biaoti)
+    TextView tvBiaoti;
+    @BindView(R.id.tv_content)
+    TextView tvContent;
+    @BindView(R.id.button4)
+    Button button4;
+
     @Override
     protected void initView() {
-
+        tvBiaoti.setText("我是标题");
     }
 
 //
