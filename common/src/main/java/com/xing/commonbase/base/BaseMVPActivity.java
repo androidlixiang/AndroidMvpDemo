@@ -1,7 +1,5 @@
 package com.xing.commonbase.base;
 
-import com.xing.commonbase.mvp.IPresenter;
-
 public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity {
     protected P mPresenter;
 

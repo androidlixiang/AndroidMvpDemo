@@ -41,12 +41,17 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
     @Override
     protected void initView() {
 //        tvAa=findViewById(R.id.tv_aa);
+        TestDialog testDialog=new TestDialog();
+        testDialog.show(getSupportFragmentManager(), "");
     }
 
 
     @Override
     public void loginSuccess(UserBean userBean) {
         tvContent.setText(userBean.toString());
+
+        TestDialog testDialog=new TestDialog();
+        testDialog.show(getSupportFragmentManager(), "");
     }
 
 

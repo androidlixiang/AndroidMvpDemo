@@ -16,7 +16,7 @@ import com.xing.commonbase.R;
 
 public class BaseApplication extends Application {
 
-    private static BaseApplication application;
+    public static BaseApplication application;
 
     //static 代码段可以防止内存泄露
     static {

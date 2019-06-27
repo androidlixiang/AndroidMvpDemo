@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
-import com.xing.commonbase.mvp.IView;
 import com.xing.commonbase.receiver.NetworkChangeReceiver;
 import com.xing.commonbase.util.StatusBarUtil;
 

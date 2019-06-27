@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.xing.commonbase.mvp.IPresenter;
-
 
 public abstract class BaseLazyFragment<P extends IPresenter> extends BaseMVPFragment<P> {
 

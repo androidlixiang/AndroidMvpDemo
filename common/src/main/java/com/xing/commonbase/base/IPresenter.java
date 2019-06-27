@@ -1,4 +1,4 @@
-package com.xing.commonbase.mvp;
+package com.xing.commonbase.base;
 
 public interface IPresenter<V extends IView> {
 

@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.xing.commonbase.http.ApiException;
 import com.xing.commonbase.http.ExceptionHandler;
-import com.xing.commonbase.mvp.IView;
 
 import io.reactivex.observers.DisposableObserver;
 

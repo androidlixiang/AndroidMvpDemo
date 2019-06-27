@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_biaoti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="我是标题" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_biaoti"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="60dp"
+        android:text="我是内容我是内容我是内容我是内容我是内容" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:text="Button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="60dp"
+        android:text="Button" />
+
+</RelativeLayout>

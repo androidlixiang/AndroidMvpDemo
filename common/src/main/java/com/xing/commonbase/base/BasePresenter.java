@@ -1,8 +1,7 @@
-package com.xing.commonbase.mvp;
+package com.xing.commonbase.base;
 
 import android.content.Context;
 
-import com.xing.commonbase.base.BaseObserver;
 import com.xing.commonbase.http.RetrofitClient;
 
 import java.lang.ref.WeakReference;

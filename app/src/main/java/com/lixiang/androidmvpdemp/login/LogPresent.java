@@ -2,7 +2,7 @@ package com.lixiang.androidmvpdemp.login;
 
 import com.lixiang.androidmvpdemp.ApiService;
 import com.xing.commonbase.base.BaseObserver;
-import com.xing.commonbase.mvp.BasePresenter;
+import com.xing.commonbase.base.BasePresenter;
 
 import java.util.HashMap;
 

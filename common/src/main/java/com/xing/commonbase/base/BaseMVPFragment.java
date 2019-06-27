@@ -4,9 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import com.xing.commonbase.mvp.IPresenter;
-import com.xing.commonbase.mvp.IView;
-
 public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment implements IView {
 
     protected Context mContext;
