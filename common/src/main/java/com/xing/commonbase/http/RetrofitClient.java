@@ -3,13 +3,13 @@ package com.xing.commonbase.http;
 
 import com.xing.commonbase.interceptor.InterceptorUtil;
 import com.xing.commonbase.interceptor.LogInterceptor;
+import com.xing.commonbase.json.FastJsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
@@ -27,6 +27,7 @@ public class RetrofitClient {
         okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(15, TimeUnit.SECONDS)
+                .writeTimeout(15, TimeUnit.SECONDS)
 //                .cookieJar(cookieJar)
 //                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
 //                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
@@ -38,8 +39,9 @@ public class RetrofitClient {
         retrofit = new Retrofit.Builder()
                 .baseUrl(API_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
-                .client(okHttpClient)
+                .addConverterFactory(FastJsonConverterFactory.create()) // 添加FastJson转换器
+//                .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
+                .client(getOkHttpClient())
                 .build();
 
     }
