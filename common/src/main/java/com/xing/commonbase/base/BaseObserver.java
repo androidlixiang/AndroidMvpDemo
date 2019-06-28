@@ -26,10 +26,10 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
     @Override
     public void onNext(BaseResponse<T> baseResponse) {
         if (baseView != null) {
+            baseView.hideLoading();
             if (baseView.isDestroyData()) {
                 return;
             }
-            baseView.hideLoading();
         }
         int errcode = baseResponse.getCode();
         String errmsg = baseResponse.getMessage();

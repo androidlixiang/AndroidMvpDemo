@@ -5,10 +5,6 @@ public class ApiException extends RuntimeException {
     private int errcode;
     private String errmsg;
 
-    public ApiException() {
-
-    }
-
     public ApiException(int code, String msg) {
         this.errcode = code;
         this.errmsg = msg;

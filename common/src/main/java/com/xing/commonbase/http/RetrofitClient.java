@@ -1,7 +1,7 @@
 package com.xing.commonbase.http;
 
 
-import com.xing.commonbase.interceptor.InterceptorUtil;
+import com.xing.commonbase.interceptor.HeaderInterceptor;
 import com.xing.commonbase.interceptor.LogInterceptor;
 import com.xing.commonbase.json.FastJsonConverterFactory;
 
@@ -31,8 +31,7 @@ public class RetrofitClient {
 //                .cookieJar(cookieJar)
 //                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
 //                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
-//                .addInterceptor(InterceptorUtil.logInterceptor())
-                .addInterceptor(InterceptorUtil.headerInterceptor())
+                .addInterceptor(new HeaderInterceptor())
                 .addInterceptor(new LogInterceptor())
                 .build();
 
@@ -40,7 +39,6 @@ public class RetrofitClient {
                 .baseUrl(API_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(FastJsonConverterFactory.create()) // 添加FastJson转换器
-//                .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
                 .client(getOkHttpClient())
                 .build();
 
