@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,4 +13,9 @@
         android:text="Button"
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="178dp" />
-</android.support.constraint.ConstraintLayout>
+
+    <com.lixiang.androidmvpdemp.ArcBackgroundView
+        android:id="@+id/arc_back_view"
+        android:layout_width="match_parent"
+        android:layout_height="138dp" />
+</LinearLayout>

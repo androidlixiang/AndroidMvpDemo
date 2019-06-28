@@ -9,24 +9,34 @@ import io.reactivex.observers.DisposableObserver;
 
 public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>> {
     private IView baseView;
+    private boolean isShowLoading;
 
 
     public BaseObserver(IView baseView) {
+        this(baseView, true);
+    }
+
+    public BaseObserver(IView baseView, boolean isShowLoading) {
         this.baseView = baseView;
+        this.isShowLoading = isShowLoading;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         if (baseView != null) {
-            baseView.showLoading();
+            if (isShowLoading) {
+                baseView.showLoading();
+            }
         }
     }
 
     @Override
     public void onNext(BaseResponse<T> baseResponse) {
         if (baseView != null) {
-            baseView.hideLoading();
+            if (isShowLoading) {
+                baseView.hideLoading();
+            }
             if (baseView.isDestroyData()) {
                 return;
             }
@@ -62,7 +72,9 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
     @Override
     public void onComplete() {
         if (baseView != null) {
-            baseView.hideLoading();
+            if (isShowLoading) {
+                baseView.hideLoading();
+            }
         }
     }
 }
