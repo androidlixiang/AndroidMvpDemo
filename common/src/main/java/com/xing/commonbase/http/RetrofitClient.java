@@ -23,7 +23,6 @@ public class RetrofitClient {
 //        ClearableCookieJar cookieJar =
 //                new PersistentCookieJar(new SetCookieCache(),
 //                        new SharedPrefsCookiePersistor(BaseApplication.getApplication()));
-
         okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(15, TimeUnit.SECONDS)

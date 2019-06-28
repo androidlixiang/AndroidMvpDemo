@@ -80,9 +80,9 @@ public class ExceptionHandler {
 //                gotoLoginActivity();
                 break;
             case 20000:
-                ARouter.getInstance()
-                        .build("/activity/second")
-                        .navigation();
+//                ARouter.getInstance()
+//                        .build("/activity/second")
+//                        .navigation();
                 break;
             default:
                 break;

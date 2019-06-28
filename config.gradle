@@ -32,7 +32,6 @@ ext {
             "converter-gson"         : "com.squareup.retrofit2:converter-gson:2.4.0",
             "adapter-rxjava"         : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
             "okhttp"                 : "com.squareup.okhttp3:okhttp:3.11.0",
-            "logging-interceptor"    : "com.squareup.okhttp3:logging-interceptor:3.11.0",
             "arouter-api"            : "com.alibaba:arouter-api:1.4.1",
             "arouter-compiler"       : "com.alibaba:arouter-compiler:1.2.2",
             "fastjson"               : "com.alibaba:fastjson:1.1.70.android",
@@ -40,12 +39,9 @@ ext {
             "glide-compiler"         : "com.github.bumptech.glide:compiler:4.9.0",
             "recycler-adapter-helper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
             "banner"                 : "com.youth.banner:banner:1.4.10",
-            "greendao"               : "org.greenrobot:greendao:3.2.2",
-            "retrofit-cookie"        : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
             "smart-refreshlayout"    : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21",
             "photoview"              : "com.github.chrisbanes:PhotoView:2.0.0",
-            "andpermission"          : "com.yanzhenjie.permission:support:2.0.1",
+            "rxpermissions"          : "com.github.tbruyelle:rxpermissions:0.10.2",
             "eventbus"               : "org.greenrobot:eventbus:3.1.1",
-            "aspectj"                : "org.aspectj:aspectjrt:1.8.9"
     ]
 }
