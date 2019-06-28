@@ -1,5 +1,6 @@
 package com.lixiang.androidmvpdemp.widget;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,6 +16,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -37,7 +39,7 @@ public class ImmersionTitleView extends LinearLayout {
     private OnTitlerClickListener mListener;
     private TextView mTitleName;
     private ImageView mRightIV;
-    private ImageView mLeftIV;
+    private ImageButton mLeftIV;
     private View mBottomView;
     private FrameLayout mRightFl;
     //状态栏高度
@@ -62,6 +64,7 @@ public class ImmersionTitleView extends LinearLayout {
         initAttrs(attrs);
     }
 
+    @SuppressLint("ResourceType")
     public void initData(AttributeSet attrs) {
         setOrientation(VERTICAL);
         if (getBackground() == null)
@@ -79,7 +82,18 @@ public class ImmersionTitleView extends LinearLayout {
         }
 
         //最左侧按钮默认是返回
-        mLeftIV = new ImageView(getContext());
+        mLeftIV = new ImageButton(getContext());
+        try {
+            TypedValue typedValue = new TypedValue();
+            getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
+            int[] attribute = new int[]{android.R.attr.selectableItemBackground};
+            TypedArray attributes = getContext().getTheme().obtainStyledAttributes(typedValue.resourceId, attribute);
+            mLeftIV.setBackground(attributes.getDrawable(0));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         mLeftIV.setImageResource(R.mipmap.ic_back);
         mLeftIV.setOnClickListener(new OnClickListener() {
             @Override
