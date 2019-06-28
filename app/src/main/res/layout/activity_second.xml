@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:abc="http://schemas.android.com/apk/res-auto">
+
+    <com.lixiang.androidmvpdemp.widget.ImmersionTitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:m_showLine="true"
+        app:m_titleName="第二页" />
 
     <Button
         android:id="@+id/button"
@@ -18,4 +25,17 @@
         android:id="@+id/arc_back_view"
         android:layout_width="match_parent"
         android:layout_height="138dp" />
+    <com.lixiang.androidmvpdemp.widget.NumberKeyboardView
+        android:id="@+id/view_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b0b0b0"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyTextColor="#000000"
+        android:shadowColor="@android:color/transparent"
+        android:shadowRadius="0"
+        android:keyPreviewLayout="@null"
+        abc:xnkv_deleteBackgroundColor="#d2d2d2"
+        abc:xnkv_deleteWidth="22dp" />
 </LinearLayout>

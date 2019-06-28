@@ -9,14 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.lixiang.androidmvpdemp.login.LogPresent;
 import com.lixiang.androidmvpdemp.login.LoginCon;
 import com.lixiang.androidmvpdemp.login.UserBean;
 import com.xing.commonbase.base.BaseMVPActivity;
-import com.xing.commonbase.constants.Constants;
-import com.xing.commonbase.util.LogUtil;
-
-import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -71,15 +68,15 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
             case R.id.button1:
 //                mPresenter.login(new LogBean(name, paw));
 //                ARouter.getInstance().build("/activity/second").navigation();
-//                ARouter.getInstance()
-//                        .build("/activity/second")
-//                        .navigation();
-                String path = Constants.FILE_CATALOG + "/lixiang";
-                File dir1 = new File(path);
-                if (!dir1.exists()) {
-                    boolean mkdirs = dir1.mkdirs();
-                    LogUtil.logTest(mkdirs + "");
-                }
+                ARouter.getInstance()
+                        .build("/activity/second")
+                        .navigation();
+//                String path = Constants.FILE_CATALOG + "/lixiang";
+//                File dir1 = new File(path);
+//                if (!dir1.exists()) {
+//                    boolean mkdirs = dir1.mkdirs();
+//                    LogUtil.logTest(mkdirs + "");
+//                }
 
 //                startActivity(new Intent(mContext,SecondActivity.class));
                 break;

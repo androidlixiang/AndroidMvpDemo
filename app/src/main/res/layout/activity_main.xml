@@ -7,34 +7,42 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <com.lixiang.androidmvpdemp.widget.ImmersionTitleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:m_showLine="true"
+        app:m_titleName="aaaa" />
+    <!--app:m_isVisibleLine="true"-->
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginTop="200dp"
         android:text="15637939253" />
 
     <EditText
         android:id="@+id/et_pasww"
-        android:text="q123456"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="q123456" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="登陆1" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="登陆2" />
+
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"

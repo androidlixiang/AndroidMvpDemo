@@ -22,6 +22,7 @@ import org.greenrobot.eventbus.Subscribe;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+
 public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     protected Context mContext;
