@@ -27,14 +27,14 @@ public class DensityUtil {
      */
     public static int sp2px(Context context, float spVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                spVal, context.getResources().getDisplayMetrics());
+                spVal, BaseApplication.application.getResources().getDisplayMetrics());
     }
 
     /**
      * px转dp
      */
     public static float px2dp(Context context, float pxVal) {
-        final float scale = context.getResources().getDisplayMetrics().density;
+        final float scale = BaseApplication.application.getResources().getDisplayMetrics().density;
         return (pxVal / scale);
     }
 
@@ -42,7 +42,18 @@ public class DensityUtil {
      * px转sp
      */
     public static float px2sp(Context context, float pxVal) {
-        return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
+        return (pxVal / BaseApplication.application.getResources().getDisplayMetrics().scaledDensity);
+    }
+
+
+    /**
+     * 获取状态栏高度
+     *
+     * @return 状态栏高度
+     */
+    public static int getStatusBarHeight() {
+        int resourceId =  BaseApplication.application.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        return  BaseApplication.application.getResources().getDimensionPixelSize(resourceId);
     }
 }
 

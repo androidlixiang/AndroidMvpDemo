@@ -1,7 +1,5 @@
 package com.xing.commonbase.base;
 
-import android.content.Context;
-
 import com.xing.commonbase.http.RetrofitClient;
 
 import java.lang.ref.WeakReference;
@@ -18,7 +16,7 @@ public class BasePresenter<V extends IView> implements IPresenter<V> {
     // 管理订阅关系，用于取消订阅
     protected CompositeDisposable compositeDisposable;
 
-    protected Context mContext;
+//    protected Context mContext;
 
     public BasePresenter() {
 

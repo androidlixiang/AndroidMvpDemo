@@ -10,8 +10,8 @@
     <com.lixiang.androidmvpdemp.widget.ImmersionTitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:m_showLine="true"
-        app:m_titleName="第二页" />
+        app:showLine="true"
+        app:titleName="第二页" />
 
     <Button
         android:id="@+id/button"

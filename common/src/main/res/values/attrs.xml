@@ -2,21 +2,19 @@
 <resources>
     <declare-styleable name="MyTitleView">
         <!--标题名字-->
-        <attr name="m_titleName" format="string" />
-        <!--下划线是否可见-->
-        <attr name="m_isVisibleLine" format="boolean" />
+        <attr name="titleName" format="string" />
         <!--右边的资源文件-->
-        <attr name="m_rightRes" format="reference" />
+        <attr name="rightRes" format="reference" />
         <!--左边的资源文件-->
-        <attr name="m_leftRes" format="reference" />
+        <attr name="leftRes" format="reference" />
         <!--标题颜色-->
-        <attr name="m_titleColor" format="color" />
+        <attr name="titleColor" format="color" />
         <!--设置自己的布局文件-->
-        <attr name="m_layout" format="integer" />
+        <attr name="uselayout" format="integer" />
         <!--系统状态栏-->
-        <attr name="m_showMstate" format="boolean" />
+        <attr name="showMstate" format="boolean" />
         <!--是否显示下划线-->
-        <attr name="m_showLine" format="boolean" />
+        <attr name="showLine" format="boolean" />
     </declare-styleable>
 
 </resources>

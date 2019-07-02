@@ -1,6 +1,5 @@
 package com.xing.commonbase.http;
 
-
 import com.xing.commonbase.interceptor.HeaderInterceptor;
 import com.xing.commonbase.interceptor.LogInterceptor;
 import com.xing.commonbase.json.FastJsonConverterFactory;

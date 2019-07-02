@@ -1,7 +1,8 @@
 package com.xing.commonbase.base;
 
-import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -15,7 +16,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.xing.commonbase.BuildConfig;
 import com.xing.commonbase.R;
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
 
     public static BaseApplication application;
 
@@ -43,6 +44,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        MultiDex.install(this);
         initRouter(this);
     }
 

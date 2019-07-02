@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.xing.commonbase.R;
+import com.xing.commonbase.util.DensityUtil;
+import com.xing.commonbase.util.LogUtil;
 
 import java.lang.ref.WeakReference;
 
@@ -35,9 +37,11 @@ public class NoNetworkTip {
                 PixelFormat.TRANSLUCENT);
         layoutParams.gravity = Gravity.START | Gravity.TOP;
 //        layoutParams.x = 100;
-        layoutParams.horizontalMargin = 100;
-        layoutParams.horizontalWeight = 0.8f;
-        layoutParams.y = 150;
+//        layoutParams.horizontalMargin = 100;
+//        layoutParams.horizontalWeight = 0.8f;
+        layoutParams.y = DensityUtil.dp2px(48);
+        LogUtil.logTest(DensityUtil.dp2px(48)+"<----------------\n");
+        LogUtil.logTest(DensityUtil.getStatusBarHeight()+"<----------------");
         initView();
     }
 

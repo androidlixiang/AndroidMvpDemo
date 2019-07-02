@@ -43,5 +43,6 @@ ext {
             "photoview"              : "com.github.chrisbanes:PhotoView:2.0.0",
             "rxpermissions"          : "com.github.tbruyelle:rxpermissions:0.10.2",
             "eventbus"               : "org.greenrobot:eventbus:3.1.1",
+            "multidex"               : "com.android.support:multidex:1.0.1",
     ]
 }

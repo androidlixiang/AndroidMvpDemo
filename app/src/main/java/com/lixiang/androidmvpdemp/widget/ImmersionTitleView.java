@@ -168,7 +168,7 @@ public class ImmersionTitleView extends LinearLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (attrs != null) {
                 TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MyTitleView);
-                boolean showMstate = typedArray.getBoolean(R.styleable.MyTitleView_m_showMstate, true);
+                boolean showMstate = typedArray.getBoolean(R.styleable.MyTitleView_showMstate, true);
                 if (showMstate) {
                     addView(mstate, new LayoutParams(LayoutParams.MATCH_PARENT, height));
                 }
@@ -196,7 +196,7 @@ public class ImmersionTitleView extends LinearLayout {
     public void initAttrs(AttributeSet attrs) {
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MyTitleView);
-            int mLayoutResource = typedArray.getResourceId(R.styleable.MyTitleView_m_layout, 0);
+            int mLayoutResource = typedArray.getResourceId(R.styleable.MyTitleView_uselayout, 0);
             //如果以上布局不支持可以进行自己设置布局样式
             if (mLayoutResource != 0) {
                 ll.removeAllViews();
@@ -208,16 +208,16 @@ public class ImmersionTitleView extends LinearLayout {
                 typedArray.recycle();
                 return;
             }
-            addmBottomView = typedArray.getBoolean(R.styleable.MyTitleView_m_showLine, false);
-            mTitleName.setText(typedArray.getString(R.styleable.MyTitleView_m_titleName));
-            int color = typedArray.getColor(R.styleable.MyTitleView_m_titleColor, getResources().getColor(R.color.c_111111));
+            addmBottomView = typedArray.getBoolean(R.styleable.MyTitleView_showLine, false);
+            mTitleName.setText(typedArray.getString(R.styleable.MyTitleView_titleName));
+            int color = typedArray.getColor(R.styleable.MyTitleView_titleColor, getResources().getColor(R.color.c_111111));
             mTitleName.setTextColor(color);
-            setIsVisibleLine(typedArray.getBoolean(R.styleable.MyTitleView_m_isVisibleLine, true));
-            Drawable rightDrawable = typedArray.getDrawable(R.styleable.MyTitleView_m_rightRes);
+            setIsVisibleLine(addmBottomView);
+            Drawable rightDrawable = typedArray.getDrawable(R.styleable.MyTitleView_rightRes);
             if (rightDrawable != null) {
                 mRightIV.setImageDrawable(rightDrawable);
             }
-            Drawable leftDrawable = typedArray.getDrawable(R.styleable.MyTitleView_m_leftRes);
+            Drawable leftDrawable = typedArray.getDrawable(R.styleable.MyTitleView_leftRes);
             if (leftDrawable != null && mLeftIV != null) {
                 mLeftIV.setImageDrawable(leftDrawable);
             }
@@ -250,7 +250,7 @@ public class ImmersionTitleView extends LinearLayout {
 
     //下边的线是否可见
     public void setIsVisibleLine(boolean isVisible) {
-        mBottomView.setVisibility(isVisible ? VISIBLE : INVISIBLE);
+        mBottomView.setVisibility(isVisible ? VISIBLE : GONE);
     }
 
     /**

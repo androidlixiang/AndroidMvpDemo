@@ -9,9 +9,10 @@
 
     <com.lixiang.androidmvpdemp.widget.ImmersionTitleView
         android:layout_width="match_parent"
+        android:background="#ff0000"
         android:layout_height="wrap_content"
-        app:m_showLine="true"
-        app:m_titleName="aaaa" />
+        app:showLine="true"
+        app:titleName="aaaa" />
     <!--app:m_isVisibleLine="true"-->
 
     <EditText
