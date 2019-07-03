@@ -33,6 +33,6 @@ public class ToastUtil {
     }
 
     public static void toastDebugLong(CharSequence cs) {
-        if (BuildConfig.DEBUG) Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT).show();
+        if (BaseApplication.isDebug) Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT).show();
     }
 }

@@ -3,7 +3,7 @@ package com.xing.commonbase.util;
 
 import android.util.Log;
 
-import com.xing.commonbase.BuildConfig;
+import com.xing.commonbase.base.BaseApplication;
 
 /**
  * Created by lixiang on 2018/5/17.
@@ -13,7 +13,7 @@ import com.xing.commonbase.BuildConfig;
 public class LogUtil {
 
 
-    private static boolean isRealease = BuildConfig.DEBUG ? false : true;
+    private static boolean isRealease = BaseApplication.isDebug;
 
 
     public static void logXj(String str) {

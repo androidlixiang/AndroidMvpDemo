@@ -1,7 +1,7 @@
 package com.xing.commonbase.base;
 
 import android.content.Context;
-import android.support.multidex.MultiDex;
+import android.content.pm.ApplicationInfo;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -13,12 +13,12 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.xing.commonbase.BuildConfig;
 import com.xing.commonbase.R;
 
 public class BaseApplication extends MultiDexApplication {
 
     public static BaseApplication application;
+    public static boolean isDebug=true;
 
     //static 代码段可以防止内存泄露
     static {
@@ -44,7 +44,7 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         application = this;
-        MultiDex.install(this);
+        isDebug = getApplicationInfo() != null && (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         initRouter(this);
     }
 
@@ -54,7 +54,7 @@ public class BaseApplication extends MultiDexApplication {
      * @param baseApplication
      */
     private void initRouter(BaseApplication baseApplication) {
-        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+        if (isDebug) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }

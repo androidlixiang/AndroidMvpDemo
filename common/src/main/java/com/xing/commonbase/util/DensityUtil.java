@@ -55,5 +55,6 @@ public class DensityUtil {
         int resourceId =  BaseApplication.application.getResources().getIdentifier("status_bar_height", "dimen", "android");
         return  BaseApplication.application.getResources().getDimensionPixelSize(resourceId);
     }
+
 }
 
