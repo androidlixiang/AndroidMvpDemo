@@ -39,17 +39,17 @@ dependencies {
     api rootProject.ext.dependencies['annotations']
     api rootProject.ext.dependencies['recyclerview-v7']
     api 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
-    api 'com.google.code.gson:gson:2.8.5'
     api 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
     api rootProject.ext.dependencies['retrofit']
     api rootProject.ext.dependencies['rxandroid']
     api rootProject.ext.dependencies['rxjava']
-    api 'com.squareup.retrofit2:converter-gson:2.6.0'
     api rootProject.ext.dependencies['adapter-rxjava']
     api rootProject.ext.dependencies['okhttp']
-    api 'com.alibaba:fastjson:1.2.58'
     api rootProject.ext.dependencies['recycler-adapter-helper']
     api rootProject.ext.dependencies['glide']
+    api rootProject.ext.dependencies['fastjson']
+    api rootProject.ext.dependencies['gson']
+    api rootProject.ext.dependencies['multidex']
     implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
     annotationProcessor rootProject.ext.dependencies['glide-compiler']
 
@@ -64,6 +64,5 @@ dependencies {
     api rootProject.ext.dependencies['photoview']
     api rootProject.ext.dependencies['rxpermissions']
     api rootProject.ext.dependencies['eventbus']
-    api 'com.android.support:multidex:1.0.3'
 
 }
