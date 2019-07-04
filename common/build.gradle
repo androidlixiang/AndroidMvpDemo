@@ -39,7 +39,7 @@ dependencies {
     api rootProject.ext.dependencies['annotations']
     api rootProject.ext.dependencies['recyclerview-v7']
     api 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
-    api rootProject.ext.dependencies['gson']
+    api 'com.google.code.gson:gson:2.8.5'
     api 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
     api rootProject.ext.dependencies['retrofit']
     api rootProject.ext.dependencies['rxandroid']
@@ -47,7 +47,7 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.6.0'
     api rootProject.ext.dependencies['adapter-rxjava']
     api rootProject.ext.dependencies['okhttp']
-    api rootProject.ext.dependencies['fastjson']
+    api 'com.alibaba:fastjson:1.2.58'
     api rootProject.ext.dependencies['recycler-adapter-helper']
     api rootProject.ext.dependencies['glide']
     implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
