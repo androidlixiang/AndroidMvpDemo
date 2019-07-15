@@ -13,7 +13,7 @@ import com.xing.commonbase.base.BaseApplication;
 public class LogUtil {
 
 
-    private static boolean isRealease = BaseApplication.isDebug;
+    private static boolean isRealease = !BaseApplication.isDebug;
 
 
     public static void logXj(String str) {
