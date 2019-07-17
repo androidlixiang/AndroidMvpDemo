@@ -16,13 +16,14 @@ import com.xing.commonbase.R;
 import butterknife.ButterKnife;
 
 public abstract class BaseDialogFragment extends DialogFragment {
+    protected View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         setStyle(R.style.MyDialogStyle, R.style.AppTheme);
-        View view = inflater.inflate(getLayoutResId(), null);
+        view = inflater.inflate(getLayoutResId(), null);
         ButterKnife.bind(this, view);
         initView();
         return view;
