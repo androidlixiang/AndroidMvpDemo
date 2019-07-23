@@ -9,6 +9,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：BasePresenter
+ */
 public class BasePresenter<V extends IView> implements IPresenter<V> {
 
     //    protected V view;

@@ -5,7 +5,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * 网络链接工具类
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：网络链接工具类
  */
 public class NetworkUtil {
 

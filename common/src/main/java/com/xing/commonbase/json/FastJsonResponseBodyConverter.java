@@ -10,6 +10,11 @@ import okio.BufferedSource;
 import okio.Okio;
 import retrofit2.Converter;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：网络请求返回数据处理
+ */
 class FastJsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     private final Type type;
 

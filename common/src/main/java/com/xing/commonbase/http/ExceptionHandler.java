@@ -15,6 +15,12 @@ import java.net.ConnectException;
 
 import retrofit2.HttpException;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：网络请求数据的异常处理
+ */
+
 public class ExceptionHandler {
     private static final String TAG = "ExceptionHandler";
     private static final int UNAUTHORIZED = 401;

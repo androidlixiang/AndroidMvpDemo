@@ -9,7 +9,9 @@ import okhttp3.Request;
 import okio.Buffer;
 
 /**
- * Created by lixiang on 2019/3/13
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：网络请求输入日志
  */
 public class LogInterceptor implements Interceptor {
 

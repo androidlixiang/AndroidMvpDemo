@@ -6,14 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 
 import com.xing.commonbase.util.NetworkUtil;
 import com.xing.commonbase.widget.NoNetworkTip;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：网络变化的广播
+ */
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
-    private static final String TAG = "NetworkChangeReceiver";
     private Activity activity;
     private NoNetworkTip noNetworkTip;
 
@@ -24,7 +27,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e(TAG, "onReceive: ");
         if (noNetworkTip == null) {
             noNetworkTip = new NoNetworkTip(activity);
         }

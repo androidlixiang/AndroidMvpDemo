@@ -1,5 +1,10 @@
 package com.xing.commonbase.base;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：BasePresenter的需要实现的接口
+ */
 public interface IPresenter<V extends IView> {
 
     /**

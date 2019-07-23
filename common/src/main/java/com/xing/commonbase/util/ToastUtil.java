@@ -8,9 +8,10 @@ import com.xing.commonbase.BuildConfig;
 import com.xing.commonbase.base.BaseApplication;
 
 /**
- * Created by lixiang on 2018/5/17.
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：吐司工具
  */
-
 public class ToastUtil {
 
 

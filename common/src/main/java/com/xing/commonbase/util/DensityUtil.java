@@ -6,7 +6,9 @@ import android.util.TypedValue;
 import com.xing.commonbase.base.BaseApplication;
 
 /**
- * dp,px 相互转化工具类
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：dp,px相互转化工具类
  */
 public class DensityUtil {
 

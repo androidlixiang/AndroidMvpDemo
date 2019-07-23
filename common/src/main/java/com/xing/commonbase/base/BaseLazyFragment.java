@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：懒加载的Fragment基础类
+ */
 
 public abstract class BaseLazyFragment<P extends IPresenter> extends BaseMVPFragment<P> {
 

@@ -4,6 +4,11 @@ import android.os.Environment;
 
 import com.xing.commonbase.BuildConfig;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：存放一些常量
+ */
 
 public class Constants {
     /**

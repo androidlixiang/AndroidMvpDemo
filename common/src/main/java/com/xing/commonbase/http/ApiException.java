@@ -1,5 +1,12 @@
 package com.xing.commonbase.http;
 
+
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：自定义网络异常
+ */
+
 public class ApiException extends RuntimeException {
 
     private int errcode;

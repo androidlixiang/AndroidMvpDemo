@@ -22,6 +22,12 @@ import org.greenrobot.eventbus.Subscribe;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：Activity的基础类,所有的都需要基础这个类，MVP模式的需要基础BaseMVPActivity
+ */
+
 
 public abstract class BaseActivity extends AppCompatActivity implements IView {
 
@@ -31,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
-        fullScreen(this,true);
+        fullScreen(this, true);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         ARouter.getInstance().inject(this);

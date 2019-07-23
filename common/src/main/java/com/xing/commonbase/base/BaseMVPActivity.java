@@ -1,5 +1,11 @@
 package com.xing.commonbase.base;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：MVP模式的BaseMVPActivity,使用MVP基础这个activity
+ */
+
 public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity {
     protected P mPresenter;
 

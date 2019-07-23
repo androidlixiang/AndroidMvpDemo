@@ -7,6 +7,12 @@ import com.xing.commonbase.http.ExceptionHandler;
 
 import io.reactivex.observers.DisposableObserver;
 
+/**
+ * @创建者:李祥
+ * @创建日期： 2019/7/23 10:38
+ * @类说明：RXjava的基础类，统一数据，错误等的处理
+ */
+
 public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>> {
     private IView baseView;
     private boolean isShowLoading;
