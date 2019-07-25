@@ -13,6 +13,7 @@ import org.greenrobot.eventbus.Subscribe;
  * @创建者:李祥
  * @创建日期： 2019/7/23 10:38
  * @类说明：Fragment的基础类,所有的都需要基础这个类，MVP模式和懒加载的需要基础BaseLazyFragment
+ * @see BaseMVPActivity
  */
 
 
