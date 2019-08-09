@@ -67,14 +67,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showLoading() {
-        if (!isShowLoading()) return;
         LogUtil.logTest("showLoading");
 
     }
 
     @Override
     public void hideLoading() {
-        if (!isShowLoading()) return;
         LogUtil.logTest("hideLoading");
     }
 
@@ -116,12 +114,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     }
 
-    /**
-     * @return 是否显示加载的loading
-     */
-    public boolean isShowLoading() {
-        return true;
-    }
 
     /**
      * 通过设置全屏，设置状态栏透明 字体为灰色

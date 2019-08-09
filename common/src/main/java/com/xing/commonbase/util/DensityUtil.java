@@ -2,6 +2,7 @@ package com.xing.commonbase.util;
 
 import android.content.Context;
 import android.util.TypedValue;
+import android.view.WindowManager;
 
 import com.xing.commonbase.base.BaseApplication;
 
@@ -47,6 +48,27 @@ public class DensityUtil {
         return (pxVal / BaseApplication.application.getResources().getDisplayMetrics().scaledDensity);
     }
 
+    /**
+     * 得到屏幕的高
+     *
+     * @return
+     */
+    public static int getScreenHeight() {
+        WindowManager wm = (WindowManager) BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        int height = wm.getDefaultDisplay().getHeight();
+        return height;
+    }
+
+    /**
+     * 得到屏幕的宽
+     *
+     * @return
+     */
+    public static int getScreenWidth() {
+        WindowManager wm = (WindowManager) BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        return width;
+    }
 
     /**
      * 获取状态栏高度
