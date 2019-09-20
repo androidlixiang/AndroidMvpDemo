@@ -7,10 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowBackground">@color/white</item>
         <item name="android:windowIsTranslucent">true</item>
         <!--<item name="android:actionBarStyle">@style/ActionBar.Custom</item>-->
         <!--<item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
+    </style>
+
+
+    <style name="AppStartTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--冷启动时间更慢 但是点击图标是立即打开视觉效果-->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@mipmap/timg</item>
     </style>
 
     <style name="MyDialogStyle" parent="@style/Theme.AppCompat.Dialog">

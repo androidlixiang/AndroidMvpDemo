@@ -62,6 +62,7 @@ dependencies {
     api rootProject.ext.dependencies['photoview']
     api rootProject.ext.dependencies['rxpermissions']
     api rootProject.ext.dependencies['eventbus']
+    api rootProject.ext.dependencies['blurry']
     api rootProject.ext.dependencies['autosize']
 
 }
