@@ -1,8 +1,9 @@
 package com.lixiang.androidmvpdemp.login;
 
-import java.io.Serializable;
 
-public class UserBean implements Serializable {
+import com.common.bean.BaseBean;
+
+public class UserBean extends BaseBean {
 
 
     /**

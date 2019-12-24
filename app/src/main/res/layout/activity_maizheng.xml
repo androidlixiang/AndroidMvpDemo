@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MaiZhengActivity">
+
+    <Button
+        android:id="@+id/mButt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="心电图" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="99dp">
+
+    </com.github.mikephil.charting.charts.LineChart>
+
+    <com.lixiang.androidmvpdemp.widget.PulseWaveView
+        android:id="@+id/mPulseWaveView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.lixiang.androidmvpdemp.widget.DragView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+</LinearLayout>

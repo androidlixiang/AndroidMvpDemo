@@ -84,7 +84,7 @@ public class BasePresenter<V extends IView> implements IPresenter<V> {
         }
     }
 
-    protected <T> T create(Class<T> clazz) {
+    public  <T> T create(Class<T> clazz) {
         return RetrofitClient.getInstance().getRetrofit().create(clazz);
     }
 }

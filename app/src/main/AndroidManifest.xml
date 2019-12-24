@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.lixiang.androidmvpdemp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
@@ -15,6 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<!--        <activity
+            android:name=".activity.NavigationActivity"
+            android:label="@string/title_activity_navigation"></activity>-->
+
+        <!--android:theme="@style/AppStartTheme"-->
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +32,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--        <activity android:name=".MainActivity"/>-->
         <activity android:name=".SecondActivity" />
+        <activity android:name=".activity.LineActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.ButtonTestActivity" />
+        <activity android:name=".activity.ButtonTest2Activity" />
+        <activity android:name=".activity.HeadZoomScrollViewActivity" />
+
+        <activity android:name=".activity.CehuaActivity" />
+        <activity android:name=".activity.OpenGlDemoActivity" />
+        <activity android:name=".activity.ListActivity" />
+        <activity android:name=".activity.MaiZhengActivity" />
+        <activity android:name=".activity.CanvasActivity" />
+        <activity android:name=".activity.MemoryTextActivity" />
+        <activity android:name=".activity.TestProfilerActivity" />
+        <activity android:name=".activity.KtHomeActivity"/>
+        <activity android:name=".activity.KtLoginActivity"/>
+        <!--今日头条适配方案-->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360" />
     </application>
 
 </manifest>

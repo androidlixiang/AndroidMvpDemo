@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.sensorsdata.analytics.android'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -15,17 +17,35 @@ android {
                 includeCompileClasspath = true
             }
         }
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-vector-drawable:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -33,5 +53,16 @@ dependencies {
     implementation rootProject.ext.dependencies['butterknife']
     annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
     annotationProcessor rootProject.ext.dependencies['arouter-compiler']
+//    implementation project(path: ':SensorsAnalyticsSDK')
     implementation project(path: ':common')
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'org.litepal.android:java:3.0.0'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+//    implementation(name: 'SensorsAnalyticsSDK-3_0_1', ext: 'aar')
+    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:3.2.7'
+    testImplementation 'org.mockito:mockito-core:2.25.1'
+//    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50"
 }

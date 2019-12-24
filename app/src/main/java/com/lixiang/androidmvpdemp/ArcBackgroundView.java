@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -66,17 +65,17 @@ public class ArcBackgroundView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-
         mPaint.setColor(mColor);
         canvas.translate(0, 0);
-        Rect rect = new Rect(0, 0, mWidth, mRectHeight);
-        canvas.drawRect(rect, mPaint);
-
-
-        canvas.translate(mWidth / 2, mRectHeight);
-        RectF arcRect = new RectF(-mWidth / 2, -mArcHeight, mWidth / 2, mArcHeight);
+        RectF arcRect = new RectF(0, 0, mWidth, mArcHeight);
         canvas.drawArc(arcRect, 0, 180, false, mPaint);
+
+
+//        canvas.translate(0, 0);
+//        Rect rect = new Rect(0, 0, mWidth, mRectHeight);
+//        canvas.drawRect(rect, mPaint);
+
+
     }
 
     public void setColor(String color) {

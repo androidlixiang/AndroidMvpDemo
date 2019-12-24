@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--item布局，自定义View-->
+<com.lixiang.androidmvpdemp.widget.LeftSlideView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="1dp"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--"设置"，"删除"按钮使用了TextView而不是Button，是因为５.０以上版本使用Button会显示在上层产出错误显示-->
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_background"
+                android:textColor="#dde65b05"
+                android:textSize="50dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="124dp">
+
+            <CheckBox
+                android:id="@+id/cb_shop_cart_item"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+             />
+
+
+            <ImageView
+                android:id="@+id/iv_shop_cart_goods_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/cb_shop_cart_item"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_shop_cart_goods_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_shop_cart_goods_pic"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_shop_cart_goods_pic"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text=""
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_shop_cart_goods_attr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_shop_cart_goods_pic"
+                android:text="规格"
+           />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_alignBottom="@+id/iv_shop_cart_goods_pic"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/iv_shop_cart_goods_pic"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="¥"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_shop_cart_goods_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_price_dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".00"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tv_shop_cart_goods_reduce_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="3dp"
+                    android:padding="1dp"
+                    android:text="赚111"
+                    android:textColor="@color/white"
+              />
+
+                <ImageView
+                    android:id="@+id/iv_new_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="11dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/btn_goods_nums_reduce"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/white"
+                    android:scaleType="center"
+               />
+
+
+
+                <EditText
+                    android:id="@+id/tv_shop_cart_goods_nums"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:text=""
+                 />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+              />
+
+                <ImageView
+                    android:id="@+id/btn_goods_nums_add"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@color/white"
+                    android:scaleType="center"
+              />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_set"
+            android:background="@drawable/pink_background"
+            android:gravity="center"
+            android:text="删 除"
+            android:textColor="#DDFFFFFF"
+            android:textSize="25dp" />
+
+
+        <TextView
+            android:id="@+id/tv_set"
+            android:layout_width="80dp"
+            android:layout_height="106dp"
+            android:layout_toRightOf="@+id/layout_content"
+            android:background="@drawable/orange_background"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="#DDFFFFFF"
+            android:textSize="25dp" />
+
+
+    </RelativeLayout>
+</com.lixiang.androidmvpdemp.widget.LeftSlideView>

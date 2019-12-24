@@ -4,31 +4,31 @@
 
     <!-- CircleProgressBar -->
     <declare-styleable name="CircleProgressBar">
-        <attr name="max" format="integer"/>				<!-- 进度条最大值 -->
-        <attr name="fill8" format="boolean"/>			<!-- 是否填充圆形区域 -->
-        <attr name="Paint_Width" format="integer"/>		<!-- 画笔宽度，填充模式下无效，会被重置为0 -->
-        <attr name="Paint_Color" format="integer"/>		<!-- 画笔颜色 -->
-        <attr name="Inside_Interval" format="integer"/> <!-- 圆形区域向里缩进的距离 -->
+        <attr name="max" format="integer" />                <!-- 进度条最大值 -->
+        <attr name="fill8" format="boolean" />            <!-- 是否填充圆形区域 -->
+        <attr name="Paint_Width" format="integer" />        <!-- 画笔宽度，填充模式下无效，会被重置为0 -->
+        <attr name="Paint_Color" format="integer" />        <!-- 画笔颜色 -->
+        <attr name="Inside_Interval" format="integer" /> <!-- 圆形区域向里缩进的距离 -->
     </declare-styleable>
 
     <declare-styleable name="PathView">
-        <attr name="pathColor" format="color|reference"/>
-        <attr name="pathWidth" format="dimension|reference"/>
-        <attr name="svg" format="reference"/>
-        <attr name="fill" format="boolean"/>
-        <attr name="fillColor" format="color|reference"/>
-        <attr name="naturalColors" format="boolean"/>
+        <attr name="pathColor" format="color|reference" />
+        <attr name="pathWidth" format="dimension|reference" />
+        <attr name="svg" format="reference" />
+        <attr name="fill" format="boolean" />
+        <attr name="fillColor" format="color|reference" />
+        <attr name="naturalColors" format="boolean" />
     </declare-styleable>
 
 
     <declare-styleable name="TagViewGroup">
-        <attr name="inner_radius" format="dimension"/>
-        <attr name="radius" format="dimension"/>
-        <attr name="line_width" format="dimension"/>
-        <attr name="v_distance" format="dimension"/>
-        <attr name="tilt_distance" format="dimension"/>
-        <attr name="ripple_alpha" format="integer"/>
-        <attr name="ripple_maxRadius" format="dimension"/>
+        <attr name="inner_radius" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="line_width" format="dimension" />
+        <attr name="v_distance" format="dimension" />
+        <attr name="tilt_distance" format="dimension" />
+        <attr name="ripple_alpha" format="integer" />
+        <attr name="ripple_maxRadius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="XNumberKeyboardView">
@@ -44,6 +44,11 @@
 
         <!-- 删除按键图标的颜色 -->
         <attr name="xnkv_deleteBackgroundColor" format="color|reference" />
+
+    </declare-styleable>
+    <declare-styleable name="ArcImageView">
+
+        <attr name="arcHeight" format="dimension" />
 
     </declare-styleable>
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.lixiang.androidmvpdemp.widget.PanelView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_aa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="MemoryTextActivity"
+        android:textSize="40dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="#ff0000"
+        app:layout_constraintTop_toBottomOf="@+id/tv_aa"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/iv_greetings"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <ImageView
+            android:layout_marginTop="100dp"
+            android:id="@+id/iv_greetings1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

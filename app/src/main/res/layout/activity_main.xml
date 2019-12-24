@@ -1,66 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff00f"
+    android:clipChildren="false"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.lixiang.androidmvpdemp.widget.ImmersionTitleView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="#ff0000"
-        android:layout_height="wrap_content"
-        app:showLine="true"
-        app:titleName="aaaa" />
-    <!--app:m_isVisibleLine="true"-->
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="15637939253" />
+        <com.lixiang.androidmvpdemp.widget.TextProgress
+            android:id="@+id/mProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="50dp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_group" />
 
-    <EditText
-        android:id="@+id/et_pasww"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="q123456" />
+        <FrameLayout
+            android:id="@+id/mFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登陆1" />
+            <ImageView
+                android:id="@+id/mImageView"
+                android:scaleType="fitXY"
+                android:layout_width="194px"
+                android:layout_height="83px"
+                android:src="@mipmap/robot_head" />
+        </FrameLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登陆2" />
 
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="15637939253" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:src="@mipmap/ic_back" />
+        <EditText
+            android:id="@+id/et_pasww"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="q123456" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:src="@mipmap/ic_back" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="登陆1" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/qq"
+            android:text="登陆2" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:text="aaaaaaaaaaa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center_horizontal">
+
+            <com.lixiang.androidmvpdemp.widget.FocusImageView
+                android:id="@+id/iv_animation"
+                android:layout_width="300dp"
+                android:layout_height="170dp"
+                android:focusableInTouchMode="true"
+                android:padding="3dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ttt" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/timg" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:background="#b3ffffff" />
+
+        </RelativeLayout>
+
+        <com.lixiang.androidmvpdemp.widget.PanelView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="100dp" />
+    </LinearLayout>
+</ScrollView>

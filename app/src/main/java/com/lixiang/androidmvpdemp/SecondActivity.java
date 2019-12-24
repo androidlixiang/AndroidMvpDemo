@@ -4,15 +4,15 @@ import android.text.Editable;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.common.base.BaseMVPActivity;
+import com.common.base.IPresenter;
 import com.lixiang.androidmvpdemp.widget.NumberKeyboardView;
-import com.xing.commonbase.base.BaseMVPActivity;
-import com.xing.commonbase.base.IPresenter;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 @Route(path = "/activity/second")
-public class SecondActivity extends BaseMVPActivity implements  NumberKeyboardView.IOnKeyboardListener {
+public class SecondActivity extends BaseMVPActivity implements NumberKeyboardView.IOnKeyboardListener {
     @BindView(R.id.button)
     Button button;
     @BindView(R.id.arc_back_view)

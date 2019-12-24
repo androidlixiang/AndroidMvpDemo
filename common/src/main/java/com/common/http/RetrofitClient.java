@@ -3,7 +3,7 @@ package com.common.http;
 
 import com.common.interceptor.HeaderInterceptor;
 import com.common.interceptor.LogInterceptor;
-import com.common.json.FastJsonConverterFactory;
+import com.common.json.GsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,7 +39,7 @@ public class RetrofitClient {
         retrofit = new Retrofit.Builder()
                 .baseUrl(API_HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(FastJsonConverterFactory.create()) // 添加FastJson转换器
+                .addConverterFactory(GsonConverterFactory.create()) // 添加FastJson转换器
                 .client(getOkHttpClient())
                 .build();
 

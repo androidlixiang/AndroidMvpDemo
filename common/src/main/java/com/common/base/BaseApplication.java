@@ -2,6 +2,7 @@ package com.common.base;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -52,6 +53,7 @@ public class BaseApplication extends MultiDexApplication {
         application = this;
         isDebug = getApplicationInfo() != null && (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         initRouter(this);
+        MultiDex.install(this);
     }
 
     /**

@@ -7,7 +7,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.xing.commonbase.base.BaseDialogFragment;
+import com.common.base.BaseDialogFragment;
 
 import butterknife.BindView;
 

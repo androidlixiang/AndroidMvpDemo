@@ -1,10 +1,11 @@
 package com.lixiang.androidmvpdemp.login;
 
+
+import com.common.base.BaseObserver;
+import com.common.base.BasePresenter;
+import com.common.base.BaseResponse;
+import com.common.http.ApiException;
 import com.lixiang.androidmvpdemp.ApiService;
-import com.xing.commonbase.base.BaseObserver;
-import com.xing.commonbase.base.BasePresenter;
-import com.xing.commonbase.base.BaseResponse;
-import com.xing.commonbase.http.ApiException;
 
 import java.util.HashMap;
 

@@ -1,6 +1,7 @@
 package com.lixiang.androidmvpdemp.login;
 
-import com.xing.commonbase.base.IView;
+
+import com.common.base.IView;
 
 public interface LoginCon {
 

@@ -29,7 +29,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         if (baseView != null) {
             if (isShowLoading) {
@@ -43,6 +43,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
         if (baseView != null) {
             if (isShowLoading) {
                 baseView.hideLoading();
+                isShowLoading = false;
             }
             if (baseView.isDestroyData()) {
                 return;
@@ -72,7 +73,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
      */
     @Override
     public void onError(Throwable e) {
-       ExceptionHandler.handleException(e);
+        ExceptionHandler.handleException(e);
         Log.w("BaseObserver", e);
     }
 
