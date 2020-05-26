@@ -1,7 +1,6 @@
 package com.common.util;
 
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.widget.Toast;
 
 import com.common.base.BaseApplication;
@@ -19,21 +18,24 @@ public class ToastUtil {
         if (TextUtils.isEmpty(cs.toString())) {
             return;
         }
-        Toast toast = Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
+        Toast toast = Toast.makeText(BaseApplication.getApplication(), null, Toast.LENGTH_SHORT);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setText(cs.toString());
         toast.show();
     }
 
     public static void toastDebug(CharSequence cs) {
-        if (BuildConfig.DEBUG) Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT).show();
+        if (BuildConfig.DEBUG)
+            Toast.makeText(BaseApplication.getApplication(), cs, Toast.LENGTH_SHORT).show();
     }
 
 
     public static void toastLong(CharSequence cs) {
-        Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BaseApplication.getApplication(), cs, Toast.LENGTH_SHORT).show();
     }
 
     public static void toastDebugLong(CharSequence cs) {
-        if (BaseApplication.isDebug) Toast.makeText(BaseApplication.application, cs, Toast.LENGTH_SHORT).show();
+        if (BaseApplication.isDebug)
+            Toast.makeText(BaseApplication.getApplication(), cs, Toast.LENGTH_SHORT).show();
     }
 }

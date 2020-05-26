@@ -1,7 +1,9 @@
 package com.common.util;
 
+
 import android.Manifest;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
@@ -10,9 +12,10 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import androidx.core.app.ActivityCompat;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -23,11 +26,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.TimeZone;
 
-
 /**
- * 项目：国民健康平台
  *
- * @Creator:曾招林julyzeng
  * @创建日期： 2018/8/1 16:27
  * @版本0.1
  * @类说明：设备相关参数获取
@@ -40,7 +40,7 @@ public class DeviceUtil {
      * 获取设备唯一标识ID,不需要权限获取
      */
     public static final String getDeviceId(Context context) {
-//8fb3643bda875b1cunknown
+
         String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         String id = androidID + Build.SERIAL;
         return id;
@@ -52,7 +52,7 @@ public class DeviceUtil {
      * @return
      */
     public static String getPhoneBrand() {
-        return Build.BRAND;
+        return android.os.Build.BRAND;
     }
 
     /**
@@ -61,9 +61,25 @@ public class DeviceUtil {
      * @return
      */
     public static String getPhoneModel(Context context) {
-        return Build.MODEL;
+        return android.os.Build.MODEL;
     }
 
+    /**
+     * 获取手机市场渠道
+     *
+     * @param context
+     * @return
+     */
+    public static String getChannel(Context context) {
+        String channel = "";
+        try {
+            ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            channel = info.metaData.getString("UMENG_CHANNEL");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return channel;
+    }
 
     /**
      * 获取手机Android 版本（4.4、5.0、5.1 ...）
@@ -71,7 +87,7 @@ public class DeviceUtil {
      * @return
      */
     public static String getBuildVersion() {
-        return Build.VERSION.RELEASE;
+        return android.os.Build.VERSION.RELEASE;
     }
 
     /**
@@ -220,8 +236,6 @@ public class DeviceUtil {
         String phoneNumber = "";
         TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)
@@ -237,8 +251,6 @@ public class DeviceUtil {
         String uuid = "";
         TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)
@@ -292,8 +304,6 @@ public class DeviceUtil {
     public static String getIMSI(Context context) {
         TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)

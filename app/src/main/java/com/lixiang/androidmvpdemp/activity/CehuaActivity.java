@@ -1,8 +1,8 @@
 package com.lixiang.androidmvpdemp.activity;
 
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.common.base.BaseActivity;
 import com.lixiang.androidmvpdemp.R;

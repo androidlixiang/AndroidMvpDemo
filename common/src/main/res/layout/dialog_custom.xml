@@ -1,49 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/dialog_custom_dra"
-    android:padding="10dp">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/dp_16"
         android:text="111"
         android:textColor="#000"
-        android:textSize="15sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="@dimen/dp_19"
+        android:layout_marginRight="47dp"
+        android:layout_marginBottom="31dp"
         android:text="我是内容内容内容"
         android:textColor="#000"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/tv_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_content"
-        android:background="?android:selectableItemBackground"
-        android:padding="10dp"
-        android:text="确定" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/c_dddddd" />
 
-    <TextView
-        android:id="@+id/tv_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_content"
-        android:layout_alignParentRight="true"
-        android:background="?android:selectableItemBackground"
-        android:padding="10dp"
-        android:text="取消" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/c_989898"
+            android:textSize="@dimen/sp_16" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/c_dddddd" />
+
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/c_4dbd73"
+            android:textSize="@dimen/sp_16" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -7,14 +7,15 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.common.receiver.NetworkChangeReceiver;
-import com.common.util.LogUtil;
+import com.common.widget.LoadingDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,17 +33,21 @@ import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity implements IView {
 
-    protected Context mContext;
+    protected Activity mContext;
     private NetworkChangeReceiver receiver;
     private Unbinder unbinder;
+
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);//支持SVG动画
+    }
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
         fullScreen(this, true);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
-        ARouter.getInstance().inject(this);
-        mContext = this;
+        mContext = BaseActivity.this;
+//        ARouter.getInstance().inject(this);
 //        setStatusBarColor();
         // 基类中注册 eventbus
         if (!EventBus.getDefault().isRegistered(this)) {
@@ -50,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         }
         //注册ButterKnife
         unbinder = ButterKnife.bind(this);
-        registerNetworkChangeReceiver();
+//        registerNetworkChangeReceiver();
         initView();
         initData();
     }
@@ -64,21 +69,29 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     }
 
+    LoadingDialog dialog;
 
     @Override
     public void showLoading() {
-        LogUtil.logTest("showLoading");
-
+        dialog = new LoadingDialog(mContext, "正在加载中");
+        dialog.show();
     }
 
     @Override
     public void hideLoading() {
-        LogUtil.logTest("hideLoading");
+        if (dialog != null) {
+            dialog.close();
+        }
     }
 
     @Override
     public boolean isDestroyData() {
         return isFinishing();
+    }
+
+    @Override
+    public Context getContext() {
+        return mContext;
     }
 
     /**
@@ -122,33 +135,31 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
      * @param isGray
      */
     public void fullScreen(Activity activity, boolean isGray) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                //5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色
-                Window window = activity.getWindow();
-                View decorView = window.getDecorView();
-                int option;
-                if (isGray) {
-                    option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-                } else {
-                    option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-                }
-
-                //两个 flag 要结合使用，表示让应用的主体内容占用系统状态栏的空间
-
-                decorView.setSystemUiVisibility(option);
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(Color.TRANSPARENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色
+            Window window = activity.getWindow();
+            View decorView = window.getDecorView();
+            int option;
+            if (isGray) {
+                option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             } else {
-                Window window = activity.getWindow();
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                int flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-                attributes.flags |= flagTranslucentStatus;
-                window.setAttributes(attributes);
+                option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             }
+
+            //两个 flag 要结合使用，表示让应用的主体内容占用系统状态栏的空间
+
+            decorView.setSystemUiVisibility(option);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        } else {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            int flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            attributes.flags |= flagTranslucentStatus;
+            window.setAttributes(attributes);
         }
     }
 

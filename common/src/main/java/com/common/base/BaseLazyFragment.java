@@ -1,8 +1,9 @@
 package com.common.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 /**
  * @创建者:李祥

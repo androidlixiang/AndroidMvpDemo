@@ -3,15 +3,6 @@ package com.lixiang.androidmvpdemp.widget;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +10,18 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.common.util.DensityUtils;
 import com.common.util.LogUtil;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.lixiang.androidmvpdemp.R;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 
@@ -106,7 +107,7 @@ public class ListBottomSheetDialogFragment extends BottomSheetDialogFragment {
         BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
 //        dialog.setCanceledOnTouchOutside(true);
         dialog.getWindow().setDimAmount(0f);
-        FrameLayout bottomSheet = dialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet);
+        FrameLayout bottomSheet = dialog.getDelegate().findViewById(R.id.design_bottom_sheet);
         if (bottomSheet != null) {
             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomSheet.getLayoutParams();
             layoutParams.height = getHeight();

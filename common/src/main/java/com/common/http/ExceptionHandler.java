@@ -1,11 +1,13 @@
 package com.common.http;
 
+import android.content.Intent;
 import android.net.ParseException;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.base.BaseApplication;
+import com.common.util.CommonConstants;
+import com.common.util.ToastUtil;
+import com.common.util.UserManagerTool;
 import com.google.gson.JsonParseException;
 
 import org.apache.http.conn.ConnectTimeoutException;
@@ -53,7 +55,6 @@ public class ExceptionHandler {
         } else if (e instanceof ApiException) {
             ApiException exception = (ApiException) e;
             errmsg = exception.getErrmsg();
-            // 服务端返回的错误码：40001=token失效，重新登录; 40002=账号在其他设备上登录，40003=密码错误
             int errcode = exception.getErrcode();
             // 根据业务逻辑处理异常信息，如：token失效，跳转至登录界面
             handleServerException(errcode);
@@ -72,23 +73,16 @@ public class ExceptionHandler {
         } else {
             errmsg = "网络连接异常,请稍后重试";
         }
-        Toast.makeText(BaseApplication.getApplication(), errmsg, Toast.LENGTH_LONG).show();
+        ToastUtil.toast(errmsg);
     }
-
-    private static final int BIZ_TO_LOGIN = 4002;
 
     /**
      * 根据业务逻辑处理异常信息
      */
     private static void handleServerException(int errcode) {
         switch (errcode) {
-            case -1001:
-//                gotoLoginActivity();
-                break;
-            case 20000:
-//                ARouter.getInstance()
-//                        .build("/activity/second")
-//                        .navigation();
+            case CommonConstants.HTTPRELOGINCODE:
+                gotoLoginActivity();
                 break;
             default:
                 break;
@@ -99,8 +93,13 @@ public class ExceptionHandler {
      * 跳转到登录界面
      */
     private static void gotoLoginActivity() {
-        ARouter.getInstance()
-                .build("/user/LoginActivity")
-                .navigation();
+
+        Intent intent = new Intent();
+        intent.setClassName(BaseApplication.getApplication(), "com.guomin.guomindoctor.mvp.ui.activity.CodeLoginActivity");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        BaseApplication.getApplication().startActivity(intent);
+        UserManagerTool.logOut();
+//        Intent intent=new Intent(BaseApplication.getApplication(),Login/);
+
     }
 }

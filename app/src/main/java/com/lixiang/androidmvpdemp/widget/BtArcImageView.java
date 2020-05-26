@@ -18,7 +18,7 @@ import android.util.AttributeSet;
  * @UpdateRemark: 更新说明
  * @Version: 0.2
  */
-public class BtArcImageView extends android.support.v7.widget.AppCompatImageView {
+public class BtArcImageView extends androidx.appcompat.widget.AppCompatImageView {
     private Paint mPaint;
     private int mColor;
 

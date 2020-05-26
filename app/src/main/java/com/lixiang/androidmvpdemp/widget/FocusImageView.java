@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 
 import com.lixiang.androidmvpdemp.R;
 
-public class FocusImageView extends android.support.v7.widget.AppCompatImageButton {
+public class FocusImageView extends androidx.appcompat.widget.AppCompatImageButton {
     public FocusImageView(Context context) {
         this(context,null);
     }

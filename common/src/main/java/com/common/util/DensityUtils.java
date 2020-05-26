@@ -23,7 +23,7 @@ public class DensityUtils {
      */
     public static int dp2px(float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, BaseApplication.application.getResources().getDisplayMetrics());
+                dpVal, BaseApplication.getApplication().getResources().getDisplayMetrics());
     }
 
     /**
@@ -31,14 +31,14 @@ public class DensityUtils {
      */
     public static int sp2px( float spVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                spVal, BaseApplication.application.getResources().getDisplayMetrics());
+                spVal, BaseApplication.getApplication().getResources().getDisplayMetrics());
     }
 
     /**
      * px转dp
      */
     public static float px2dp(Context context, float pxVal) {
-        final float scale = BaseApplication.application.getResources().getDisplayMetrics().density;
+        final float scale = BaseApplication.getApplication().getResources().getDisplayMetrics().density;
         return (pxVal / scale);
     }
 
@@ -46,7 +46,7 @@ public class DensityUtils {
      * px转sp
      */
     public static float px2sp(float pxVal) {
-        return (pxVal / BaseApplication.application.getResources().getDisplayMetrics().scaledDensity);
+        return (pxVal / BaseApplication.getApplication().getResources().getDisplayMetrics().scaledDensity);
     }
 
     /**
@@ -55,7 +55,7 @@ public class DensityUtils {
      * @return
      */
     public static int getScreenHeight() {
-        WindowManager wm = (WindowManager) BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) BaseApplication.getApplication().getSystemService(Context.WINDOW_SERVICE);
         int height = wm.getDefaultDisplay().getHeight();
         return height;
     }
@@ -66,7 +66,7 @@ public class DensityUtils {
      * @return
      */
     public static int getScreenWidth() {
-        WindowManager wm = (WindowManager) BaseApplication.application.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) BaseApplication.getApplication().getSystemService(Context.WINDOW_SERVICE);
         int width = wm.getDefaultDisplay().getWidth();
         return width;
     }
@@ -77,8 +77,8 @@ public class DensityUtils {
      * @return 状态栏高度
      */
     public static int getStatusBarHeight() {
-        int resourceId =  BaseApplication.application.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        return  BaseApplication.application.getResources().getDimensionPixelSize(resourceId);
+        int resourceId =  BaseApplication.getApplication().getResources().getIdentifier("status_bar_height", "dimen", "android");
+        return  BaseApplication.getApplication().getResources().getDimensionPixelSize(resourceId);
     }
 
 }

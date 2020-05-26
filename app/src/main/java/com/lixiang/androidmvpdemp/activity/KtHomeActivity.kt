@@ -1,10 +1,10 @@
 package com.lixiang.androidmvpdemp.activity
 
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.common.base.BaseActivity
 import com.lixiang.androidmvpdemp.R
 import com.lixiang.androidmvpdemp.fragment.KtHomeFragment
@@ -21,8 +21,8 @@ import com.lixiang.androidmvpdemp.fragment.KtHomeFragment
 class KtHomeActivity : BaseActivity() {
 
     private var tabLayout: TabLayout? = null
-    private var viewPager: ViewPager? = null
-    private var mFragments = mutableListOf<Fragment>()
+    private var viewPager: androidx.viewpager.widget.ViewPager? = null
+    private var mFragments = mutableListOf<androidx.fragment.app.Fragment>()
     var title = arrayOf("首页", "我的", "设置")
 
 
@@ -35,7 +35,7 @@ class KtHomeActivity : BaseActivity() {
         val useFragmentPagerAdapter = UseFragmentPagerAdapter(supportFragmentManager, mFragments, title)
         viewPager?.run {
             adapter = useFragmentPagerAdapter
-            addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
                 override fun onPageScrollStateChanged(p0: Int) {
                 }
 
@@ -63,8 +63,8 @@ class KtHomeActivity : BaseActivity() {
     }
 
 
-    class UseFragmentPagerAdapter(fm: FragmentManager, var fragments: MutableList<Fragment>, var titles: Array<String>) : FragmentPagerAdapter(fm) {
-        override fun getItem(p0: Int): Fragment {
+    class UseFragmentPagerAdapter(fm: androidx.fragment.app.FragmentManager, var fragments: MutableList<androidx.fragment.app.Fragment>, var titles: Array<String>) : androidx.fragment.app.FragmentPagerAdapter(fm) {
+        override fun getItem(p0: Int): androidx.fragment.app.Fragment {
 
             return fragments.get(p0)
         }

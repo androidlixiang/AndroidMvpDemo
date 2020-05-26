@@ -2,13 +2,14 @@ package com.common.base;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
 
 import com.xing.commonbase.R;
 

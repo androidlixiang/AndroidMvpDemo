@@ -7,18 +7,29 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/c_f6f6f6</item>
+        <!--    8.0固定方向的话 并且为true会报错    Only fullscreen opaque activities can request orientation -->
+        <item name="android:windowIsTranslucent">false</item>
         <!--<item name="android:actionBarStyle">@style/ActionBar.Custom</item>-->
-        <!--<item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
-
-    <style name="AppStartTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--冷启动时间更慢 但是点击图标是立即打开视觉效果-->
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@mipmap/timg</item>
+    <style name="AppTheme.lanuchTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowIsTranslucent">true</item>
     </style>
+
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <!--    <style name="AppStartTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <!--        &lt;!&ndash;冷启动时间更慢 但是点击图标是立即打开视觉效果&ndash;&gt;-->
+    <!--        <item name="android:windowFullscreen">true</item>-->
+    <!--        <item name="android:windowBackground">@mipmap/timg</item>-->
+    <!--    </style>-->
 
     <style name="MyDialogStyle" parent="@style/Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -33,8 +44,26 @@
         <item name="android:windowAnimationStyle">@style/AnimBottom</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
     <style name="AnimBottom" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="ThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>

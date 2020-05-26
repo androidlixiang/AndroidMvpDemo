@@ -10,9 +10,6 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +19,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 
 import com.common.base.BaseMVPActivity;
 import com.common.util.LogUtil;
@@ -152,6 +153,7 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
                 break;
             case R.id.button2:
+                mPresenter.login1("aaa", "aaa");
                 break;
         }
 

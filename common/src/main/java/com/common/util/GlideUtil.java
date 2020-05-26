@@ -1,59 +1,64 @@
 package com.common.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Looper;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.common.listener.Bitmaplistener;
 
 public class GlideUtil {
-//
-//    //圆形图片
-//    public static void LoadCircleImage(Context context, String url, ImageView imageView) {
-//        Glide.with(context).load(url)
+
+
+    //加载图片
+    public static void load(Context activity, String url, ImageView imageView) {
+        Glide.with(activity)
+                .load(url)
 //                .centerCrop()
-//                .placeholder(R.drawable.mine)
-//                .error(R.drawable.mine)
-//                .transform(new CircleTransform(context))
-//                .into(imageView);
-//    }
-
-//    //圆形图片设置占位图
-//    public static void LoadCircleImage(Context context, String url, ImageView imageView, int placeholderResourceId, int errorResourceId) {
-//        Glide.with(context).load(url)
-//                .centerCrop()
-//                .placeholder(placeholderResourceId)
-//                .error(errorResourceId)
-//                .transform(new CircleTransform(context))
-//                .into(imageView);
-//    }
-
-//    //一般图片
-//    public static void LoadImage(Context context, String url, ImageView imageView) {
-//        Glide.with(context).load(url)
-//                .placeholder(R.drawable.tab_pic)
-//                .error(R.drawable.tab_pic)
-//                .into(imageView);
-//    }
-
-    //一般图片设置占位图
-    public static void LoadImage(Context context, String url, ImageView imageView, int placeholderResourceId, int errorResourceId) {
-        Glide.with(context).load(url)
-                .placeholder(placeholderResourceId)
-                .error(errorResourceId)
+//                    .placeholder(R.drawable.)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
+
     }
 
-    //圆角图片
-    public static void LoadCornersImage(Context context, String url, ImageView imageView, int num) {
-        RoundedCorners roundedCorners = new RoundedCorners(num);
-        Glide.with(context).load(url)
+    /**
+     * 加载圆角图片
+     *
+     * @param activity
+     * @param url
+     * @param imageView
+     */
+    public static void loadCircular(Activity activity, String url, ImageView imageView) {
+        Glide.with(activity)
+                .load(url)
                 .centerCrop()
-                .apply(RequestOptions.bitmapTransform(roundedCorners))
+                .transform(new GlideCircleTransform())
                 .into(imageView);
+
+
     }
 
+    public static void asBitmap(Context context, String url, Bitmaplistener bitmaplistener) {
+        Glide.with(context)
+                .asBitmap()
+                .load(url)
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        LogUtil.logTest((Looper.getMainLooper() == Looper.myLooper()) + "<-------");
+                        bitmaplistener.getBitmap(resource);
+                    }
+                });
+
+    }
 
 
 }

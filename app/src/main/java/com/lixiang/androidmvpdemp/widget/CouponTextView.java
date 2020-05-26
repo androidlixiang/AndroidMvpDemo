@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 
 import com.lixiang.androidmvpdemp.R;
@@ -21,7 +21,7 @@ import com.lixiang.androidmvpdemp.R;
  * @UpdateRemark: 更新说明
  * @Version: 0.2
  */
-public class CouponTextView extends android.support.v7.widget.AppCompatTextView {
+public class CouponTextView extends androidx.appcompat.widget.AppCompatTextView {
     private Paint mPaint;
 
     private Context mContext;

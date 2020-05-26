@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Path;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.common.util.DensityUtils;
@@ -22,7 +22,7 @@ import com.lixiang.androidmvpdemp.R;
  * @UpdateRemark: 更新说明
  * @Version: 0.2
  */
-public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
+public class ArcImageView extends androidx.appcompat.widget.AppCompatImageView {
     /*
      *弧形高度
      */
