@@ -24,19 +24,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.base.BaseMVPActivity;
-import com.common.base.BaseObserver;
-import com.common.http.HttpUtils;
 import com.common.util.LogUtil;
-import com.common.util.StorgeManagerUtils;
 import com.lixiang.androidmvpdemp.activity.KtHomeActivity;
 import com.lixiang.androidmvpdemp.login.LogPresent;
 import com.lixiang.androidmvpdemp.login.LoginCon;
-import com.lixiang.androidmvpdemp.login.TestBean;
 import com.lixiang.androidmvpdemp.login.UserBean;
 import com.lixiang.androidmvpdemp.widget.FocusImageView;
 import com.lixiang.androidmvpdemp.widget.TextProgress;
-
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -158,68 +152,6 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
                 break;
             case R.id.button2:
-//                Studio studio = new Studio("张三", "11", "男");
-//                LogUtil.logTest(studio.toString());
-                HashMap map = new HashMap<>();
-                map.put("phone", "15637939251");
-                map.put("password", "q123456");
-                HttpUtils.postDefault("http://api.xzhuangshop.com/member/login", map, TestBean.class, new BaseObserver<TestBean>(this) {
-                    @Override
-                    protected void onSuccess(TestBean data) {
-                        LogUtil.logTest(data.toString());
-                    }
-                });
-
-
-//                HttpUtils.postDefault("http://api.xzhuangshop.com/member/login", map, UserBean.class, new BaseObserver<UserBean>(this) {
-//                    @Override
-//                    protected void onSuccess(UserBean data) {
-//                        LogUtil.logTest(data.toString());
-//                    }
-//                });
-
-
-//                studio.save();
-//
-//
-//                Studio studio1 = new Studio("历史", "1111", "女");
-//                studio1.saveAsync().listen(new SaveCallback() {
-//                    @Override
-//                    public void onFinish(boolean success) {
-//                        LogUtil.logTest(success+"");
-//                    }
-//                });
-//
-//                new Thread(){
-//                    @Override
-//                    public void run() {
-//                        super.run();
-//                        Studio studio2 = new Studio("111方法", "112", "男");
-//                        studio2.save();
-//
-//                    }
-//                }.start();
-
-
-//                mPresenter.login1(name, paw);
-//                new CustomDialog.Builder()
-//                        .setContent("我是内容啦啦啦啦")
-//                        .setTitle("我是啦啦啦啦啦")
-//                        .setPositiveButtonText("确定", null)
-//                        .setNegativeButtonText("取消", null)
-//                        .show(getSupportFragmentManager());
-
-//                new AlertDialog.Builder(this)
-//                        .setPositiveButton("哦哦哦", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//
-//                            }
-//                        })
-//                        .create().show();
-                long dataFreeSize = StorgeManagerUtils.getDataFreeSize();
-                LogUtil.logTest(dataFreeSize / 1024 + "<----------------");
-
                 break;
         }
 
