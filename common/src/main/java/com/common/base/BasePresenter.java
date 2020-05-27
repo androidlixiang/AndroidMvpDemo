@@ -36,8 +36,6 @@ public class BasePresenter<V extends IView> implements IPresenter<V> {
      */
     public void attachView(V view) {
         viewRef = new WeakReference<>(view);
-        V v = viewRef.get();
-//        this.view = view;
     }
 
     /**

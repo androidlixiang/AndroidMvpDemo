@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -35,6 +36,13 @@ import com.lixiang.androidmvpdemp.widget.TextProgress;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCon.View {
 
@@ -100,7 +108,7 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
 //        getIntent().get
 
-        tvContent.setText(null+"www");
+        tvContent.setText(null + "www");
     }
 
 
@@ -153,7 +161,51 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
                 break;
             case R.id.button2:
-                mPresenter.login1("aaa", "aaa");
+
+                Observable.create(new ObservableOnSubscribe<String>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+
+                        LogUtil.logTest("1当前是否在主线程---》" + (Looper.myLooper() == Looper.getMainLooper()));
+                        emitter.onNext("1");
+                        emitter.onNext("2");
+                        emitter.onNext("3");
+                        emitter.onNext("4");
+                    }
+                }).subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Observer<String>() {
+                            // 第二步：初始化Observer
+                            private String i = "3";
+                            private Disposable mDisposable;
+
+                            @Override
+                            public void onSubscribe(Disposable d) {
+                                mDisposable = d;
+                                LogUtil.logTest("onSubscribe");
+
+                            }
+
+                            @Override
+                            public void onNext(String s) {
+                                LogUtil.logTest("2当前是否在主线程---》" + (Looper.myLooper() == Looper.getMainLooper()));
+                                LogUtil.logTest("onNext");
+                                LogUtil.logTest("onNext--->" + s);
+                                if (s.equals(i)) {
+                                    mDisposable.dispose();
+                                }
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                LogUtil.logTest("onError");
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                LogUtil.logTest("onComplete");
+                            }
+                        });
                 break;
         }
 
@@ -224,7 +276,6 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
             e.printStackTrace();
         }
     }
-
 
 
     private void checkPermission() {

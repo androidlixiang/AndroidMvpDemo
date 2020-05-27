@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.sensorsdata.analytics.android'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -51,7 +53,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     // butterknife
     implementation rootProject.ext.dependencies['butterknife']
-    annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+    kapt rootProject.ext.dependencies['butterknife-compiler']
     annotationProcessor rootProject.ext.dependencies['arouter-compiler']
 //    implementation project(path: ':SensorsAnalyticsSDK')
     implementation project(path: ':common')
