@@ -1,10 +1,13 @@
 package com.lixiang.androidmvpdemp.activity
 
+import android.widget.Button
+import androidx.viewpager.widget.ViewPager
 import butterknife.BindView
 import com.common.base.BaseActivity
 import com.google.android.material.tabs.TabLayout
 import com.lixiang.androidmvpdemp.R
 import com.lixiang.androidmvpdemp.fragment.KtHomeFragment
+import com.lixiang.androidmvpdemp.widget.ImmersionTitleView
 
 
 /**
@@ -18,16 +21,21 @@ import com.lixiang.androidmvpdemp.fragment.KtHomeFragment
 class KtHomeActivity : BaseActivity() {
 
 
-    @BindView(R.id.tabLayout) lateinit var tabLayout: TabLayout
+    @BindView(R.id.immersionTitleView)
+    lateinit var immersionTitleView: ImmersionTitleView
+    @BindView(R.id.tabLayout)
+    lateinit var tabLayout: TabLayout
+    @BindView(R.id.viewPager)
+    lateinit var viewPager: ViewPager
+    @BindView(R.id.button5)
+    lateinit var button5: Button
 
 
-    private var viewPager: androidx.viewpager.widget.ViewPager? = null
     private var mFragments = mutableListOf<androidx.fragment.app.Fragment>()
     var title = arrayOf("首页", "我的", "设置")
 
 
     override fun initView() {
-        viewPager = findViewById(R.id.viewPager)
         title.forEach {
             mFragments.add(KtHomeFragment.getInsytance(it))
         }

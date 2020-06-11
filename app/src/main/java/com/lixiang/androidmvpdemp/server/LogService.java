@@ -23,6 +23,7 @@ public class LogService extends Service {
         @Override
         public void getInfo(String name, String passWord) throws RemoteException {
 
+
         }
     };
 

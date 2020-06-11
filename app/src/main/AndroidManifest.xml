@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:name=".MyApplication"
@@ -19,9 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity
-            android:name=".activity.NavigationActivity"
-            android:label="@string/title_activity_navigation"></activity>-->
+        <!--        <activity
+                    android:name=".activity.NavigationActivity"
+                    android:label="@string/title_activity_navigation"></activity>-->
 
         <!--android:theme="@style/AppStartTheme"-->
 
@@ -48,8 +50,28 @@
         <activity android:name=".activity.CanvasActivity" />
         <activity android:name=".activity.MemoryTextActivity" />
         <activity android:name=".activity.TestProfilerActivity" />
-        <activity android:name=".activity.KtHomeActivity"/>
-        <activity android:name=".activity.KtLoginActivity"/>
+        <activity android:name=".activity.KtHomeActivity" />
+        <activity android:name=".activity.KtLoginActivity" />
+        <activity android:name=".activity.RiliActivity" />
+
+        <provider
+            android:name=".provider.MyProvider"
+            android:authorities="com.lixiang.androidmvpdemp.myprovider"
+            android:exported="true" />
+        <service
+            android:name=".server.MyService1"
+            android:enabled="true"
+            android:exported="true" />
+        <receiver android:name=".receiver.AlarmRemindReceiver">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROVIDER_CHANGED" />
+
+                <data android:scheme="content" />
+                <data android:host="com.android.calendar" />
+            </intent-filter>
+
+        </receiver>
         <!--今日头条适配方案-->
         <meta-data
             android:name="design_width_in_dp"

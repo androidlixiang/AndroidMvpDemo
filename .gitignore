@@ -9,3 +9,4 @@
 gradle
 gradlew.bat
 gradlew
+/app/src/main/java/com/lixiang/androidmvpdemp/TestActivity.java

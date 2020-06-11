@@ -1,5 +1,6 @@
 package com.lixiang.androidmvpdemp;
 
+
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -13,14 +14,8 @@ import java.util.Map;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-//        assertEquals(4, 2 + 2);
-//        int[] a = {3, 2, 4};
-//        int[] ints = twoSum(a, 6);
-//        System.out.println(Arrays.toString(ints));
-//        String aaa=null;
-//        System.out.println(aaa);
+        System.out.println(1/0);
 
-        System.out.println("   ".length());
 
 
     }

@@ -6,15 +6,21 @@
 
     <TextView
         android:id="@+id/textView"
-        android:textSize="30sp"
         android:layout_width="0dp"
-        android:text="aaaaaaaaaa"
-        android:textStyle="bold"
-        android:gravity="center"
         android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="aaaaaaaaaa"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.lixiang.androidmvpdemp.widget.PieView
+        android:id="@+id/mPieView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ import com.lixiang.androidmvpdemp.login.kt.KtUserBeanData
  * @CreateDate: 2019/12/24 10:53
  */
 class KtLoginActivity : BaseMVPActivity<KtLogPreSent>(), KtLoginCon.View {
+
     private var phone: EditText? = null
     private var paw: EditText? = null
     private var login: Button? = null

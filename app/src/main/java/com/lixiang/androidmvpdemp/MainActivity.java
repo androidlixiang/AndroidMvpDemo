@@ -1,13 +1,15 @@
 package com.lixiang.androidmvpdemp;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Looper;
+import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -27,22 +29,17 @@ import androidx.core.app.ActivityCompat;
 
 import com.common.base.BaseMVPActivity;
 import com.common.util.LogUtil;
-import com.lixiang.androidmvpdemp.activity.KtHomeActivity;
+import com.lixiang.androidmvpdemp.activity.RiliActivity;
 import com.lixiang.androidmvpdemp.login.LogPresent;
 import com.lixiang.androidmvpdemp.login.LoginCon;
 import com.lixiang.androidmvpdemp.login.UserBean;
+import com.lixiang.androidmvpdemp.server.MyService1;
+import com.lixiang.androidmvpdemp.utils.TabLayoutText;
 import com.lixiang.androidmvpdemp.widget.FocusImageView;
 import com.lixiang.androidmvpdemp.widget.TextProgress;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCon.View {
 
@@ -109,8 +106,22 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 //        getIntent().get
 
         tvContent.setText(null + "www");
+        Intent intent = new Intent(mContext, MyService1.class);
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            LogUtil.logTest("onServiceConnected");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            LogUtil.logTest("onServiceDisconnected");
+
+        }
+    };
 
     @Override
     public void loginSuccess(UserBean userBean) {
@@ -147,7 +158,7 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 //                ListBottomSheetDialogFragment fragment=new ListBottomSheetDialogFragment();
 //                fragment.setTopOffset(DensityUtils.dp2px(100));
 //                fragment.show(getSupportFragmentManager(), "1");
-                startActivity(new Intent(mContext, KtHomeActivity.class));
+                startActivity(new Intent(mContext, RiliActivity.class));
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (!isIgnoringBatteryOptimizations()) {
@@ -161,56 +172,23 @@ public class MainActivity extends BaseMVPActivity<LogPresent> implements LoginCo
 
                 break;
             case R.id.button2:
-
-                Observable.create(new ObservableOnSubscribe<String>() {
-                    @Override
-                    public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-
-                        LogUtil.logTest("1当前是否在主线程---》" + (Looper.myLooper() == Looper.getMainLooper()));
-                        emitter.onNext("1");
-                        emitter.onNext("2");
-                        emitter.onNext("3");
-                        emitter.onNext("4");
-                    }
-                }).subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<String>() {
-                            // 第二步：初始化Observer
-                            private String i = "3";
-                            private Disposable mDisposable;
-
-                            @Override
-                            public void onSubscribe(Disposable d) {
-                                mDisposable = d;
-                                LogUtil.logTest("onSubscribe");
-
-                            }
-
-                            @Override
-                            public void onNext(String s) {
-                                LogUtil.logTest("2当前是否在主线程---》" + (Looper.myLooper() == Looper.getMainLooper()));
-                                LogUtil.logTest("onNext");
-                                LogUtil.logTest("onNext--->" + s);
-                                if (s.equals(i)) {
-                                    mDisposable.dispose();
-                                }
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                LogUtil.logTest("onError");
-                            }
-
-                            @Override
-                            public void onComplete() {
-                                LogUtil.logTest("onComplete");
-                            }
-                        });
+                TabLayoutText.setSelectedType(false, null);
                 break;
         }
 
 
     }
+
+    private void initCalendar() {
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(CalendarContract.ACTION_EVENT_REMINDER);
+//        intentFilter.addDataScheme("content");
+//        intentFilter.addDataAuthority("com.android.calendar", null);
+//        AlarmRemindReceiver mBroadcastReceiver
+//        registerReceiver(mBroadcastReceiver, intentFilter);
+    }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

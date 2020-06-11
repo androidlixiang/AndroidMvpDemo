@@ -1,12 +1,12 @@
 package com.lixiang.androidmvpdemp.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import butterknife.BindView
 import com.common.base.BaseFragment
 import com.lixiang.androidmvpdemp.R
-import com.lixiang.androidmvpdemp.activity.KtLoginActivity
+import com.lixiang.androidmvpdemp.widget.PieView
 
 
 /**
@@ -18,6 +18,8 @@ import com.lixiang.androidmvpdemp.activity.KtLoginActivity
  * @CreateDate: 2019/12/24 9:43
  */
 class KtHomeFragment : BaseFragment() {
+    @BindView(R.id.mPieView)
+    lateinit var mPieView: PieView
 
     companion object {
         fun getInsytance(string: String): KtHomeFragment {
@@ -34,7 +36,7 @@ class KtHomeFragment : BaseFragment() {
     }
 
     override fun initData() {
-
+        mPieView.start()
 
     }
 
@@ -42,7 +44,7 @@ class KtHomeFragment : BaseFragment() {
         val textView = rootView?.findViewById<TextView>(R.id.textView)
         textView?.text = arguments?.getString("type")
         textView?.setOnClickListener {
-            startActivity(Intent(mContext,KtLoginActivity::class.java))
+//            startActivity(Intent(mContext, KtLoginActivity::class.java))
         }
 
     }
