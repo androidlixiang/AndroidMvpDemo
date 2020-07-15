@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.guomin.niubi">
+
+    <application>
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.Permission10Activity" />
+    </application>
+</manifest>
