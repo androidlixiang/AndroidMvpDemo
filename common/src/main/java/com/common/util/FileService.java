@@ -1,5 +1,7 @@
 package com.common.util;
 
+import android.os.Environment;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,7 +25,10 @@ public class FileService {
         //设置目录
         switch (type) {
             case 0:
-                mPath = CommonConstants.EXTERNALFILESDIR+"/crash";
+                mPath = CommonConstants.EXTERNALFILESDIR + "/test";
+                break;
+            case 1:
+                mPath = Environment.getExternalStorageDirectory().getPath() + "/test";
                 break;
         }
         boolean issave;
@@ -52,8 +57,6 @@ public class FileService {
         }
         return issave;
     }
-
-
 
 
 }

@@ -1,5 +1,6 @@
 package com.lixiang.androidmvpdemp.activity
 
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.base.BaseActivity
 import com.common.util.LogUtil
 import com.common.util.ToastUtil
@@ -22,6 +23,7 @@ import java.util.*
  * @Author: lixinag
  * @CreateDate: 2020/6/9 9:47
  */
+@Route(path = "/activity/RiliActivity")
 class RiliActivity : BaseActivity() {
 
     override fun getLayoutResId() = R.layout.activity_rili

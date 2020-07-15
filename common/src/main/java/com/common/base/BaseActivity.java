@@ -47,7 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         mContext = BaseActivity.this;
-//        ARouter.getInstance().inject(this);
 //        setStatusBarColor();
         // 基类中注册 eventbus
         if (!EventBus.getDefault().isRegistered(this)) {
@@ -55,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         }
         //注册ButterKnife
         unbinder = ButterKnife.bind(this);
-//        registerNetworkChangeReceiver();
+        registerNetworkChangeReceiver();
         initView();
         initData();
     }

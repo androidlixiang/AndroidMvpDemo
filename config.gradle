@@ -8,8 +8,8 @@ ext {
             applicationId    : 'com.lixiang.androidmvpdemp',
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.3",
-            minSdkVersion    : 19,
-            targetSdkVersion : 28,
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
             versionCode      : 1,
             versionName      : "1.0"
     ]

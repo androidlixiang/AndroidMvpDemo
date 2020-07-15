@@ -1,8 +1,9 @@
 package com.lixiang.androidmvpdemp.activity;
 
+import android.view.View;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
 
 import com.common.base.BaseActivity;
 import com.common.util.LogUtil;
@@ -52,6 +53,7 @@ public class ListActivity extends BaseActivity {
         listAdapter = new ListAdapter(R.layout.item_list, strings, aaa);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(listAdapter);
+        mRecyclerView.setNestedScrollingEnabled(false);
 
     }
 

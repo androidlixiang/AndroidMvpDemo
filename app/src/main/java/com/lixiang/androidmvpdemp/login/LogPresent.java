@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class LogPresent extends BasePresenter<LoginCon.View> implements LoginCon.Presenter {
     @Override
     public void login(LogBean logBean) {
+
         addSubscribe(create(ApiService.class).login(logBean), new BaseObserver<UserBean>(getView()) {
             @Override
             public void onError(Throwable e) {

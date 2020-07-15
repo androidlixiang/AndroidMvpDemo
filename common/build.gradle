@@ -56,7 +56,7 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
     // arouter
     api rootProject.ext.dependencies['arouter-api']
-    annotationProcessor rootProject.ext.dependencies['arouter-compiler']
+//    kapt rootProject.ext.dependencies['arouter-compiler']
     api rootProject.ext.dependencies['banner']
     api rootProject.ext.dependencies['smart-refreshlayout']
     api rootProject.ext.dependencies['photoview']

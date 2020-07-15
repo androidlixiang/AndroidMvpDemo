@@ -3,9 +3,6 @@ package com.lixiang.androidmvpdemp;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -14,41 +11,13 @@ import java.util.Map;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        System.out.println(1/0);
-
-
-
+        StringBuilder builder=new StringBuilder();
+        builder.append("1");
+        builder.append("2");
+        builder.append("3");
+        builder.append("4");
+        System.out.println(builder.toString());
+        builder.setLength(3);
+        System.out.println(builder.toString());
     }
-
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int aa = target - nums[i];
-            if (map.containsKey(aa)) {
-                return new int[]{map.get(aa), i};
-            }
-            map.put(nums[i], i);
-        }
-
-
-        return nums;
-
-    }
-
-    public int minCostClimbingStairs(int[] cost) {
-        int len = cost.length;
-        int[] dp = new int[len + 1];
-
-        dp[0] = cost[0];
-        dp[1] = cost[1];
-
-        for (int i = 2; i < len; i++) {
-            dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
-        }
-        return Math.min(dp[len - 1], dp[len - 2]);
-
-
-    }
-
-
 }

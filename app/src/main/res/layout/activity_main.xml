@@ -34,10 +34,19 @@
 
             <ImageView
                 android:id="@+id/mImageView"
-                android:scaleType="fitXY"
                 android:layout_width="194px"
                 android:layout_height="83px"
+                android:scaleType="fitXY"
                 android:src="@mipmap/robot_head" />
+
+
+            <com.lixiang.androidmvpdemp.widget.DividerView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:dashGap="18px"
+                app:dashLength="18px"
+                app:dashThickness="18px"
+                app:divider_line_color="#D8D8D8" />
         </FrameLayout>
 
 
@@ -74,9 +83,9 @@
 
         <TextView
             android:id="@+id/tv_content"
-            android:text="aaaaaaaaaaa"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="aaaaaaaaaaa" />
 
 
         <RelativeLayout
